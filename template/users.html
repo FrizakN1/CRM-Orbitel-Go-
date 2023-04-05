@@ -1,0 +1,126 @@
+{{ define "users" }}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="/assets/css/null.style.css">
+        <link rel="stylesheet" href="/assets/css/all.min.css">
+        <link rel="stylesheet" href="/assets/css/{{.Theme}}/style.css" id="theme">
+        <link rel="stylesheet" href="/assets/css/{{.Theme}}/users.css">
+        <title>Пользователи</title>
+    </head>
+    <body>
+    <div class="preload">
+        <div class="preload-contain">
+            <div class="preload-icon">
+                <img src="/assets/image/rocket.svg" alt="Загрузка">
+            </div>
+        </div>
+    </div>
+    <nav>
+        <div class="menuBtn"></div>
+        <ul>
+            <li id="index">
+                <a href="/">
+                    <span class="icon"><i class="fa-solid fa-house"></i></span>
+                    <span class="text">Главная</span>
+                </a>
+            </li>
+            <li id="application">
+                <a href="/application">
+                    <span class="icon"><i class="fa-solid fa-address-card"></i></span>
+                    <span class="text">Заявки</span>
+                </a>
+            </li>
+            <li id="application">
+                <a href="/application/create">
+                    <span class="icon"><i class="fa-solid fa-address-card"></i></span>
+                    <span class="text">Создание заявки</span>
+                </a>
+            </li>
+            <li id="hoses">
+                <a href="/houses">
+                    <span class="icon"><i class="fa-solid fa-house"></i></span>
+                    <span class="text">Дома с ТВ</span>
+                </a>
+            </li>
+            <li id="users" class="active">
+                <a href="/users">
+                    <span class="icon"><i class="fa-solid fa-users"></i></span>
+                    <span class="text">Пользователи</span>
+                </a>
+            </li>
+            <li id="login">
+                <a href="/users/login">
+                    <span class="icon"><i class="fa-solid fa-right-to-bracket"></i></span>
+                    <span class="text">Авторизация</span>
+                </a>
+            </li>
+            <li>
+                <a href="/about">
+                    <span class="icon"><i class="fa-solid fa-address-card"></i></span>
+                    <span class="text">О нас</span>
+                </a>
+            </li>
+            <li class="settings">
+                {{/*            <a href="/settings">*/}}
+                {{/*                <span class="icon"><i class="fa-solid fa-gear"></i></span>*/}}
+                {{/*                <span class="text">Настройки</span>*/}}
+                {{/*            </a>*/}}
+                <div class="LD-mode">
+                    <span class="icon"><div class="switch"><div></div></div></span>
+                    <span class="text">Тёмная тема</span>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <!--    <header>-->
+    <!--        <div class="profile">-->
+    <!--            <span>Евгений</span>-->
+    <!--            <div><img src="assets/image/avatar.jpg" alt=""></div>-->
+    <!--        </div>-->
+    <!--    </header>-->
+    <main>
+        <div class="title">
+            <h2>Пользователи CRM</h2>
+            <a href="/users/create"><div class="btn edit">+ Создать пользователя</div></a>
+        </div>
+        <section>
+            {{ range $i := .Users}}
+                <div class="user">
+                    <span>{{$i.Name}}</span>
+                    <div>
+                        <a href="/users/edit/{{$i.ID}}"><div class="btn edit">Изменить</div></a>
+                        {{if eq $i.Blocked 0}}
+                            <div class="btn block btn-block-unblock" data-user_id="{{$i.ID}}">Заблокировать</div>
+                        {{end}}
+                        {{if eq $i.Blocked 1}}
+                            <div class="btn unblock btn-block-unblock" data-user_id="{{$i.ID}}">Разблокировать</div>
+                        {{end}}
+                    </div>
+                </div>
+            {{end}}
+
+{{/*            <div class="user">*/}}
+{{/*                <span>Виноградов Е.Н.</span>*/}}
+{{/*                <div>*/}}
+{{/*                    <a href="/users/edit"><div class="btn edit">Изменить</div></a>*/}}
+{{/*                    <div class="btn block">Заблокировать</div>*/}}
+{{/*                </div>*/}}
+{{/*            </div>*/}}
+{{/*            <div class="user">*/}}
+{{/*                <span>Виноградов Е.Н.</span>*/}}
+{{/*                <div>*/}}
+{{/*                    <a href="/users/edit"><div class="btn edit">Изменить</div></a>*/}}
+{{/*                    <div class="btn unblock">Разблокировать</div>*/}}
+{{/*                </div>*/}}
+{{/*            </div>*/}}
+        </section>
+    </main>
+    <footer>2022 ООО "Орбител". Все права защищены</footer>
+    <script src="/assets/js/script.js"></script>
+    <script src="/assets/js/send.js"></script>
+    <script src="/assets/js/user.js"></script>
+    </body>
+    </html>
+{{ end }}

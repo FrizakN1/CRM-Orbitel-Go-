@@ -1,0 +1,352 @@
+{{define "index"}}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/assets/css/null.style.css">
+    <link rel="stylesheet" href="/assets/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/{{.Theme}}/style.css" id="theme">
+    <link rel="stylesheet" href="/assets/css/{{.Theme}}/index.css">
+    <title>Главная</title>
+</head>
+<body>
+<div class="preload">
+    <div class="preload-contain">
+        <div class="preload-icon">
+            <img src="/assets/image/rocket.svg" alt="Загрузка">
+        </div>
+    </div>
+</div>
+<nav>
+    <div class="menuBtn"></div>
+    <ul>
+        <li id="exit">
+                <span class="icon"><i class="fa-solid fa-house"></i></span>
+                <span class="text">Admin</span>
+        </li>
+        <li id="index" class="active">
+            <a href="/">
+                <span class="icon"><i class="fa-solid fa-house"></i></span>
+                <span class="text">Главная</span>
+            </a>
+        </li>
+        <li id="application">
+            <a href="/application">
+                <span class="icon"><i class="fa-solid fa-address-card"></i></span>
+                <span class="text">Заявки</span>
+            </a>
+        </li>
+        <li id="application">
+            <a href="/application/create">
+                <span class="icon"><i class="fa-solid fa-address-card"></i></span>
+                <span class="text">Создание заявки</span>
+            </a>
+        </li>
+        <li id="hoses">
+            <a href="/houses">
+                <span class="icon"><i class="fa-solid fa-house"></i></span>
+                <span class="text">Дома с ТВ</span>
+            </a>
+        </li>
+        <li id="users">
+            <a href="/users">
+                <span class="icon"><i class="fa-solid fa-users"></i></span>
+                <span class="text">Пользователи</span>
+            </a>
+        </li>
+        <li id="login">
+            <a href="/users/login">
+                <span class="icon"><i class="fa-solid fa-right-to-bracket"></i></span>
+                <span class="text">Авторизация</span>
+            </a>
+        </li>
+        <li>
+            <a href="/about">
+                <span class="icon"><i class="fa-solid fa-address-card"></i></span>
+                <span class="text">О нас</span>
+            </a>
+        </li>
+        <li class="settings">
+{{/*            <a href="/settings">*/}}
+{{/*                <span class="icon"><i class="fa-solid fa-gear"></i></span>*/}}
+{{/*                <span class="text">Настройки</span>*/}}
+{{/*            </a>*/}}
+            <div class="LD-mode">
+                <span class="icon"><div class="switch"><div></div></div></span>
+                <span class="text">Тёмная тема</span>
+            </div>
+        </li>
+    </ul>
+</nav>
+{{/*    <header>*/}}
+{{/*        <div class="profile">*/}}
+{{/*            <span class="text">Евгений</span>*/}}
+{{/*            <div><img src="assets/image/avatar.jpg" alt=""></div>*/}}
+{{/*        </div>*/}}
+{{/*    </header>*/}}
+    <section>
+        <h2>Добро пожаловать в CRM - Орбител!</h2>
+        <div class="optional">
+            <div>
+                <h3>Проверить возможность подключения</h3>
+                <ul>
+                    <li>Нет интернета</li>
+                    <li>Смена ТП</li>
+                    <li>Телефония</li>
+                    <li>Другое</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Создать запрос на возможность подключения</h3>
+                <ul>
+                    <li>Нет интернета</li>
+                    <li>Смена ТП</li>
+                    <li>Телефония</li>
+                    <li>Другое</li>
+                </ul>
+            </div>
+            <div>
+                <h3>ТехПоддержка</h3>
+                <ul>
+                    <li>Нет интернета</li>
+                    <li>Смена ТП</li>
+                    <li>Телефония</li>
+                    <li>Другое</li>
+                </ul>
+            </div>
+            <div class="active">
+                <h3>Содать заявку</h3>
+                <ul>
+                    <li>Нет интернета</li>
+                    <li>Смена ТП</li>
+                    <li>Телефония</li>
+                    <li>Другое</li>
+                </ul>
+            </div>
+        </div>
+        <div class="events">
+            <h3>Последние события:</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="table-column1">Время</th>
+                        <th class="table-column2">Сотрудники</th>
+                        <th class="table-column3">Выполненное действие</th>
+                        <th class="table-column4">№ заявки</th>
+                        <th class="table-column5">Краткое описание</th>
+                        <th class="table-column6">Адрес</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="table-column1">16:22</td>
+                        <td class="table-column2">Архипова А.</td>
+                        <td class="table-column3">Создала заявку</td>
+                        <td class="table-column4">№142384</td>
+                        <td class="table-column5">Перезапитать и заизолировать электрику</td>
+                        <td class="table-column6">Чернореченская 63а-127</td>
+                    </tr>
+                    <tr>
+                        <td class="table-column1">16:22</td>
+                        <td class="table-column2">Архипова А.</td>
+                        <td class="table-column3">Создала заявку</td>
+                        <td class="table-column4">№142384</td>
+                        <td class="table-column5">Перезапитать и заизолировать электрику</td>
+                        <td class="table-column6">Чернореченская 63а-127</td>
+                    </tr>
+                    <tr>
+                        <td class="table-column1">16:22</td>
+                        <td class="table-column2">Архипова А.</td>
+                        <td class="table-column3">Создала заявку</td>
+                        <td class="table-column4">№142384</td>
+                        <td class="table-column5">Перезапитать и заизолировать электрику</td>
+                        <td class="table-column6">Чернореченская 63а-127</td>
+                    </tr>
+                    <tr>
+                        <td class="table-column1">16:22</td>
+                        <td class="table-column2">Архипова А.</td>
+                        <td class="table-column3">Создала заявку</td>
+                        <td class="table-column4">№142384</td>
+                        <td class="table-column5">Перезапитать и заизолировать электрику</td>
+                        <td class="table-column6">Чернореченская 63а-127</td>
+                    </tr>
+                    <tr>
+                        <td class="table-column1">16:22</td>
+                        <td class="table-column2">Архипова А.</td>
+                        <td class="table-column3">Создала заявку</td>
+                        <td class="table-column4">№142384</td>
+                        <td class="table-column5">Перезапитать и заизолировать электрику</td>
+                        <td class="table-column6">Чернореченская 63а-127</td>
+                    </tr>
+                    <tr>
+                        <td class="table-column1">16:22</td>
+                        <td class="table-column2">Архипова А.</td>
+                        <td class="table-column3">Создала заявку</td>
+                        <td class="table-column4">№142384</td>
+                        <td class="table-column5">Перезапитать и заизолировать электрику</td>
+                        <td class="table-column6">Чернореченская 63а-127</td>
+                    </tr>
+                    <tr>
+                        <td class="table-column1">16:22</td>
+                        <td class="table-column2">Архипова А.</td>
+                        <td class="table-column3">Создала заявку</td>
+                        <td class="table-column4">№142384</td>
+                        <td class="table-column5">Перезапитать и заизолировать электрику</td>
+                        <td class="table-column6">Чернореченская 63а-127</td>
+                    </tr>
+                    <tr>
+                        <td class="table-column1">16:22</td>
+                        <td class="table-column2">Архипова А.</td>
+                        <td class="table-column3">Создала заявку</td>
+                        <td class="table-column4">№142384</td>
+                        <td class="table-column5">Перезапитать и заизолировать электрику</td>
+                        <td class="table-column6">Чернореченская 63а-127</td>
+                    </tr>
+                    <tr>
+                        <td class="table-column1">16:22</td>
+                        <td class="table-column2">Архипова А.</td>
+                        <td class="table-column3">Создала заявку</td>
+                        <td class="table-column4">№142384</td>
+                        <td class="table-column5">Перезапитать и заизолировать электрику</td>
+                        <td class="table-column6">Чернореченская 63а-127</td>
+                    </tr>
+                    <tr>
+                        <td class="table-column1">16:22</td>
+                        <td class="table-column2">Архипова А.</td>
+                        <td class="table-column3">Создала заявку</td>
+                        <td class="table-column4">№142384</td>
+                        <td class="table-column5">Перезапитать и заизолировать электрику</td>
+                        <td class="table-column6">Чернореченская 63а-127</td>
+                    </tr>
+                    <tr>
+                        <td class="table-column1">16:22</td>
+                        <td class="table-column2">Архипова А.</td>
+                        <td class="table-column3">Создала заявку</td>
+                        <td class="table-column4">№142384</td>
+                        <td class="table-column5">Перезапитать и заизолировать электрику</td>
+                        <td class="table-column6">Чернореченская 63а-127</td>
+                    </tr>
+                    <tr>
+                        <td class="table-column1">16:22</td>
+                        <td class="table-column2">Архипова А.</td>
+                        <td class="table-column3">Создала заявку</td>
+                        <td class="table-column4">№142384</td>
+                        <td class="table-column5">Перезапитать и заизолировать электрику</td>
+                        <td class="table-column6">Чернореченская 63а-127</td>
+                    </tr>
+                    <tr>
+                        <td class="table-column1">16:22</td>
+                        <td class="table-column2">Архипова А.</td>
+                        <td class="table-column3">Создала заявку</td>
+                        <td class="table-column4">№142384</td>
+                        <td class="table-column5">Перезапитать и заизолировать электрику</td>
+                        <td class="table-column6">Чернореченская 63а-127</td>
+                    </tr>
+                    <tr>
+                        <td class="table-column1">16:22</td>
+                        <td class="table-column2">Архипова А.</td>
+                        <td class="table-column3">Создала заявку</td>
+                        <td class="table-column4">№142384</td>
+                        <td class="table-column5">Перезапитать и заизолировать электрику</td>
+                        <td class="table-column6">Чернореченская 63а-127</td>
+                    </tr>
+                    <tr>
+                        <td class="table-column1">16:22</td>
+                        <td class="table-column2">Архипова А.</td>
+                        <td class="table-column3">Создала заявку</td>
+                        <td class="table-column4">№142384</td>
+                        <td class="table-column5">Перезапитать и заизолировать электрику</td>
+                        <td class="table-column6">Чернореченская 63а-127</td>
+                    </tr>
+                    <tr>
+                        <td class="table-column1">16:22</td>
+                        <td class="table-column2">Архипова А.</td>
+                        <td class="table-column3">Создала заявку</td>
+                        <td class="table-column4">№142384</td>
+                        <td class="table-column5">Перезапитать и заизолировать электрику</td>
+                        <td class="table-column6">Чернореченская 63а-127</td>
+                    </tr>
+                    <tr>
+                        <td class="table-column1">16:22</td>
+                        <td class="table-column2">Архипова А.</td>
+                        <td class="table-column3">Создала заявку</td>
+                        <td class="table-column4">№142384</td>
+                        <td class="table-column5">Перезапитать и заизолировать электрику</td>
+                        <td class="table-column6">Чернореченская 63а-127</td>
+                    </tr>
+                    <tr>
+                        <td class="table-column1">16:22</td>
+                        <td class="table-column2">Архипова А.</td>
+                        <td class="table-column3">Создала заявку</td>
+                        <td class="table-column4">№142384</td>
+                        <td class="table-column5">Перезапитать и заизолировать электрику</td>
+                        <td class="table-column6">Чернореченская 63а-127</td>
+                    </tr>
+                    <tr>
+                        <td class="table-column1">16:22</td>
+                        <td class="table-column2">Архипова А.</td>
+                        <td class="table-column3">Создала заявку</td>
+                        <td class="table-column4">№142384</td>
+                        <td class="table-column5">Перезапитать и заизолировать электрику</td>
+                        <td class="table-column6">Чернореченская 63а-127</td>
+                    </tr>
+                    <tr>
+                        <td class="table-column1">16:22</td>
+                        <td class="table-column2">Архипова А.</td>
+                        <td class="table-column3">Создала заявку</td>
+                        <td class="table-column4">№142384</td>
+                        <td class="table-column5">Перезапитать и заизолировать электрику</td>
+                        <td class="table-column6">Чернореченская 63а-127</td>
+                    </tr>
+                    <tr>
+                        <td class="table-column1">16:22</td>
+                        <td class="table-column2">Архипова А.</td>
+                        <td class="table-column3">Создала заявку</td>
+                        <td class="table-column4">№142384</td>
+                        <td class="table-column5">Перезапитать и заизолировать электрику</td>
+                        <td class="table-column6">Чернореченская 63а-127</td>
+                    </tr>
+                    <tr>
+                        <td class="table-column1">16:22</td>
+                        <td class="table-column2">Архипова А.</td>
+                        <td class="table-column3">Создала заявку</td>
+                        <td class="table-column4">№142384</td>
+                        <td class="table-column5">Перезапитать и заизолировать электрику</td>
+                        <td class="table-column6">Чернореченская 63а-127</td>
+                    </tr>
+                    <tr>
+                        <td class="table-column1">16:22</td>
+                        <td class="table-column2">Архипова А.</td>
+                        <td class="table-column3">Создала заявку</td>
+                        <td class="table-column4">№142384</td>
+                        <td class="table-column5">Перезапитать и заизолировать электрику</td>
+                        <td class="table-column6">Чернореченская 63а-127</td>
+                    </tr>
+                    <tr>
+                        <td class="table-column1">16:22</td>
+                        <td class="table-column2">Архипова А.</td>
+                        <td class="table-column3">Создала заявку</td>
+                        <td class="table-column4">№142384</td>
+                        <td class="table-column5">Перезапитать и заизолировать электрику</td>
+                        <td class="table-column6">Чернореченская 63а-127</td>
+                    </tr>
+                    <tr>
+                        <td class="table-column1">16:22</td>
+                        <td class="table-column2">Архипова А.</td>
+                        <td class="table-column3">Создала заявку</td>
+                        <td class="table-column4">№142384</td>
+                        <td class="table-column5">Перезапитать и заизолировать электрику</td>
+                        <td class="table-column6">Чернореченская 63а-127</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <footer>2022 ООО "Орбител". Все права защищены</footer>
+    <script src="/assets/js/script.js"></script>
+    <script src="/assets/js/send.js"></script>
+    <script src="/assets/js/index.js"></script>
+</body>
+</html>
+{{end}}

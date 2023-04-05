@@ -1,0 +1,162 @@
+{{ define "users-create" }}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="/assets/css/null.style.css">
+        <link rel="stylesheet" href="/assets/css/all.min.css">
+        <link rel="stylesheet" href="/assets/css/{{.Theme}}/style.css" id="theme">
+        <link rel="stylesheet" href="/assets/css/{{.Theme}}/users.css">
+        <title>Изменение пользователя: Виноградов Е.Н</title>
+    </head>
+    <body>
+    <div class="preload">
+        <div class="preload-contain">
+            <div class="preload-icon">
+                <img src="/assets/image/rocket.svg" alt="Загрузка">
+            </div>
+        </div>
+    </div>
+    <nav>
+        <div class="menuBtn"></div>
+        <ul>
+            <li id="index">
+                <a href="/">
+                    <span class="icon"><i class="fa-solid fa-house"></i></span>
+                    <span class="text">Главная</span>
+                </a>
+            </li>
+            <li id="application">
+                <a href="/application">
+                    <span class="icon"><i class="fa-solid fa-address-card"></i></span>
+                    <span class="text">Заявки</span>
+                </a>
+            </li>
+            <li id="application">
+                <a href="/application/create">
+                    <span class="icon"><i class="fa-solid fa-address-card"></i></span>
+                    <span class="text">Создание заявки</span>
+                </a>
+            </li>
+            <li id="hoses">
+                <a href="/houses">
+                    <span class="icon"><i class="fa-solid fa-house"></i></span>
+                    <span class="text">Дома с ТВ</span>
+                </a>
+            </li>
+            <li id="users" class="active">
+                <a href="/users">
+                    <span class="icon"><i class="fa-solid fa-users"></i></span>
+                    <span class="text">Пользователи</span>
+                </a>
+            </li>
+            <li id="login">
+                <a href="/users/login">
+                    <span class="icon"><i class="fa-solid fa-right-to-bracket"></i></span>
+                    <span class="text">Авторизация</span>
+                </a>
+            </li>
+            <li>
+                <a href="/about">
+                    <span class="icon"><i class="fa-solid fa-address-card"></i></span>
+                    <span class="text">О нас</span>
+                </a>
+            </li>
+            <li class="settings">
+                {{/*            <a href="/settings">*/}}
+                {{/*                <span class="icon"><i class="fa-solid fa-gear"></i></span>*/}}
+                {{/*                <span class="text">Настройки</span>*/}}
+                {{/*            </a>*/}}
+                <div class="LD-mode">
+                    <span class="icon"><div class="switch"><div></div></div></span>
+                    <span class="text">Тёмная тема</span>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <!--    <header>-->
+    <!--        <div class="profile">-->
+    <!--            <span>Евгений</span>-->
+    <!--            <div><img src="assets/image/avatar.jpg" alt=""></div>-->
+    <!--        </div>-->
+    <!--    </header>-->
+    <main>
+        <h2>Создание пользователя</h2>
+        <section>
+            <div class="contain">
+                <div class="user-form">
+                    <div style="display: flex;">
+                        <div class="select-block">
+                            <span class="select-block-span">Роль</span>
+                            <div class="select">
+                                <div id="Role" class="select-button">
+                                    <span class="select-button-span">Выбрать</span>
+                                    <i class="fa-solid fa-caret-down select-button-icon"></i>
+                                </div>
+                                <ul class="roles">
+                                    <li value="1">SuperAdmin</li>
+                                    <li value="2">Admin</li>
+                                    <li value="3">Manager</li>
+                                    <li value="4">User</li>
+                                    <li value="5">Director</li>
+                                    <li value="6">PhoneUser</li>
+                                    <li value="7">Technician</li>
+                                    <li value="8">VirtualUser</li>
+                                    <li value="9">EnTv</li>
+                                    <li value="10">Storekeeper</li>
+                                    <li value="11">TechManager</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="select-block">
+                            <span class="select-block-span">Отдел</span>
+                            <div class="select">
+                                <div id="Department" class="select-button">
+                                    <span class="select-button-span">Выбрать</span>
+                                    <i class="fa-solid fa-caret-down select-button-icon"></i>
+                                </div>
+                                <ul class="departments">
+                                    <li value="1">(все отделы)</li>
+                                    <li value="2">Склад</li>
+                                    <li value="3">Админы</li>
+                                    <li value="4">Менеджеры</li>
+                                    <li value="5">Прорабы</li>
+                                    <li value="6">ТВ</li>
+                                    <li value="7">Телефония</li>
+                                    <li value="8">Техники</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <label>
+                        <input type="text" id="Login" required="required">
+                        <span>Логин</span>
+                        <i></i>
+                    </label>
+                    <label>
+                        <input type="text" id="Name" required="required">
+                        <span>Имя</span>
+                        <i></i>
+                    </label>
+                    <label>
+                        <input type="password" id="Password" required="required">
+                        <span>Пароль</span>
+                        <i></i>
+                    </label>
+                    <label>
+                        <input type="password" id="PasswordConfirm" required="required">
+                        <span>Подтверждение пароля</span>
+                        <i></i>
+                    </label>
+                    <div class="btn unblock" id="createUser">Создать</div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>2022 ООО "Орбител". Все права защищены</footer>
+    <script src="/assets/js/script.js"></script>
+    <script src="/assets/js/send.js"></script>
+    <script src="/assets/js/user.js"></script>
+    </body>
+    </html>
+{{ end }}

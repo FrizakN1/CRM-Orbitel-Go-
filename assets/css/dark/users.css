@@ -1,0 +1,271 @@
+main {
+    width: 100%;
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    padding: 30px 30px 0 0;
+}
+
+.title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+h2 {
+    font-size: 2em;
+    color: #0177fd;
+}
+
+section {
+    height: 100%;
+}
+
+.user {
+    background-color: #181818;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    transition: 0.5s background-color;
+}
+
+.user span {
+    font-size: 1.2em;
+    color: #e2e4ee;
+    transition: 0.5s color;
+}
+
+.user div {
+    display: flex;
+}
+
+.btn {
+    user-select: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 0 5px;
+    cursor: pointer;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit {
+    background-color: #0177fd;
+    border: 2px solid #0177fd;
+    transition: 0.2s;
+}
+.edit:hover {
+    background-color: #181818;
+    transition: 0.2s;
+    color: #0177fd;
+}
+
+.block, .unblock {
+    width: 160px;
+}
+
+.block {
+    background-color: #ff0000;
+    border: 2px solid #ff0000;
+    transition: 0.2s;
+}
+.block:hover {
+    background-color: #181818;
+    transition: 0.2s;
+    color: #ff0000;
+}
+
+.unblock {
+    background-color: #00a81e;
+    border: 2px solid #00a81e;
+    transition: 0.2s;
+}
+.unblock:hover {
+    background-color: #181818;
+    transition: 0.2s;
+    color: #00a81e;
+}
+
+label {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+label span{
+    color: #e2e4ee;
+    position: absolute;
+    left: 0;
+    padding: 10px 10px 10px;
+    pointer-events: none;
+    transition: 500ms;
+}
+
+label input{
+    font-size: 1em;
+    padding: 10px 10px ;
+    width: 100%;
+    z-index: 2;
+    background-color: transparent;
+    color: #fff;
+}
+
+label input::selection{
+    background: #858585;
+}
+
+label input:valid ~ span,
+label input:focus ~ span{
+    color: #0177fd;
+    transform: translateY(-30px);
+    font-size: 0.85em;
+}
+
+label i{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    background-color: #0177fd;
+    width: 100%;
+    border-radius: 4px;
+    transition: 500ms;
+    pointer-events: none;
+}
+
+label input:valid ~ i,
+label input:focus ~ i{
+    height: 40px;
+}
+
+.contain {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 50px;
+}
+
+.user-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #181818;
+    height: 100%;
+    padding: 0 30px;
+    border-radius: 18px;
+    box-shadow: 0 0 10px rgba(0,0,0, 0.25);
+    transition: 0.5s background-color;
+}
+
+.btns{
+    display: flex;
+    width: 500px;
+    justify-content: space-between;
+}
+
+.select-button-span {
+    color: #e2e4ee;
+}
+
+.select {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.select div {
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid #0177fd;
+    padding: 10px 20px;
+    width: 152px;
+    transition: 0.5s;
+    display: flex;
+    justify-content: center;
+    user-select: none;
+}
+
+.select div i{
+    color: #4a525f;
+    margin-left: 5px;
+    transition: 0.5s;
+}
+
+.select.active div {
+    border: 1px solid #0177fd;
+    background-color: #0177fd;
+    color: #ffffff;
+}
+
+.select.active div i{
+    color: #ffffff;
+}
+
+.select ul {
+    position: absolute;
+    height: 0;
+    top: 39px;
+    width: 125px;
+    transition: 0.2s;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.25);
+    z-index: 10;
+}
+
+.select.active ul {
+    background-color: #ffffff;
+    max-height: max-content;
+}
+
+.select.active ul.roles {
+    height: 352px;
+    transition: 0.2s;
+}
+
+.select.active ul.departments {
+    height: 256px;
+    transition: 0.1s;
+}
+
+.select ul li{
+    visibility: hidden;
+    opacity: 0;
+    color: #0177fd;
+    transition: 0.3s;
+    cursor: pointer;
+    padding: 8px;
+    text-align: center;
+}
+
+.select.active ul li{
+    visibility: visible;
+    opacity: 1;
+    transition: 0.3s;
+}
+
+.select.active ul li:hover{
+    background-color: #0177fd;
+    color: #ffffff
+}
+
+.select-block {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 20px;
+}
+.select-block-span {
+    margin-bottom: 10px;
+    color: #e2e4ee;
+}

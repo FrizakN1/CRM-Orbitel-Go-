@@ -1,0 +1,159 @@
+body{
+    font-family: 'Montserrat', sans-serif;
+    background-color: #2f2f2f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 16px;
+}
+
+.box{
+    position: relative;
+    width: 400px;
+    height: 500px;
+    border-radius: 40px;
+    overflow: hidden;
+}
+
+.box:before{
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 500px;
+    top: -50%;
+    left: -50%;
+    background: linear-gradient(0deg,transparent,
+    #0177fd,#0177fd);
+    transform-origin: bottom right;
+    animation: animate 5s linear infinite;
+}
+
+.box:after{
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 500px;
+    bottom: -50%;
+    right: -50%;
+    background: linear-gradient(0deg,#0177fd,
+    #0177fd,transparent);
+    transform-origin: top left;
+    animation: animate 5s linear infinite;
+}
+
+@keyframes animate {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.login{
+    position: absolute;
+    background-color: #181818;
+    border-radius: 40px;
+    /*box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 1em;
+    inset: 2px;
+    z-index: 1;
+}
+
+.login div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 150px;
+    flex-direction: column;
+}
+
+.login div label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    position: relative;
+}
+
+.login div label span{
+    color: #e2e4ee;
+    position: absolute;
+    left: 0;
+    padding: 10px 10px 10px;
+    pointer-events: none;
+    transition: 500ms;
+}
+
+.login div label input{
+    font-size: 1em;
+    padding: 10px 10px ;
+    width: 100%;
+    z-index: 2;
+    background-color: transparent;
+    color: #fff;
+}
+
+.login div label input::selection{
+    background: #858585;
+}
+
+.login div label input:valid ~ span,
+.login div label input:focus ~ span{
+    color: #0177fd;
+    transform: translateY(-30px);
+    font-size: 0.85em;
+}
+
+.login div label i{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    background-color: #0177fd;
+    width: 100%;
+    border-radius: 4px;
+    transition: 500ms;
+    pointer-events: none;
+}
+
+.login div label input:valid ~ i,
+.login div label input:focus ~ i{
+    height: 40px;
+}
+
+.login div label p{
+    position: absolute;
+    left: 0;
+    bottom: -25px;
+    font-size: 0.7em;
+    padding: 10px 10px 10px;
+    pointer-events: none;
+    color: #ff0000;
+}
+
+.login button {
+    background-color: #0177fd;
+    color: white;
+    font-size: inherit;
+    border-radius: 10px;
+    padding: 10px 30px;
+    transition: 500ms;
+}
+
+.login button:active {
+    opacity: 0.8;
+}
+
+footer{
+    position: absolute;
+    bottom: 5px;
+    color: #e2e4ee;
+    user-select: none;
+}
