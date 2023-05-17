@@ -32,7 +32,7 @@ func Connection(config *structures.Setting) {
 	errors := make([]string, 0)
 
 	errors = append(errors, prepareUser()...)
-	//errors = append(errors, prepareCredit()...)
+	errors = append(errors, prepareApplication()...)
 
 	if len(errors) > 0 {
 		for _, i := range errors {

@@ -41,8 +41,23 @@ type Application struct {
 	Description string
 	Notes       string
 	Executor    User
-	Status      int
+	Status      Status
 	Date        string
-	Department  int
-	Priority    int
+	Department  Department
+	Priority    Priority
+}
+
+type Status struct {
+	ID   int
+	Name string
+}
+
+type Priority struct {
+	ID   int
+	Name string
+}
+
+type Department struct {
+	ID   int
+	Name string
 }

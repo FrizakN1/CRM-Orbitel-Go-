@@ -6,7 +6,6 @@ import (
 	"CRM-test/utils"
 	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
-	"net/http"
 	"strconv"
 )
 
@@ -25,6 +24,7 @@ func Initialization() *gin.Engine {
 	routerApplication.GET("/create", applicationCreateHandler)
 	routerApplication.PUT("/create", applicationCreate)
 	routerApplication.GET("/get-abonents", getAbonents)
+	routerApplication.GET("/get-data", getApplications)
 	router.GET("/houses", housesHandler)
 
 	routerUser := router.Group("/users")
@@ -41,6 +41,17 @@ func Initialization() *gin.Engine {
 	return router
 }
 
+func getApplications(c *gin.Context) {
+	applications, e := database.GetAllApplications()
+	if e != nil {
+		utils.Logger.Println(e)
+		c.JSON(400, false)
+		return
+	}
+
+	c.JSON(200, applications)
+}
+
 func applicationCreate(c *gin.Context) {
 	var application structures.Application
 	e := c.BindJSON(&application)
@@ -49,7 +60,13 @@ func applicationCreate(c *gin.Context) {
 		c.JSON(400, false)
 		return
 	}
-	c.JSON(200, true)
+
+	if database.CreateApplication(application) {
+		c.JSON(200, true)
+		return
+	}
+
+	c.JSON(400, false)
 }
 
 func getAbonents(c *gin.Context) {
@@ -298,7 +315,7 @@ func getSession(c *gin.Context) *structures.Session {
 func getTheme(c *gin.Context) string {
 	cookie, e := c.Cookie("crm-theme")
 	if e != nil {
-		utils.Logger.Println(http.StatusBadRequest, "Куки не найден")
+		utils.Logger.Println(400, "Куки не найден")
 		return "light"
 	}
 

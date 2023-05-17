@@ -130,16 +130,16 @@ tbody tr:hover {
     background-color: rgba(255,255,255, 0.05);
 }
 
-.hard {
+.critical {
     background-color: #ffdede;
     color: #ff0000;
 }
 
-.medium {
+.high {
     color: #ff0000;
 }
 
-.easy {
+.low {
     color: #0177fd;
     background-color: #d7e8fd;
 }

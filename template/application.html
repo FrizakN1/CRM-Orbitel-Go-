@@ -50,18 +50,18 @@
                 <span class="text">Пользователи</span>
             </a>
         </li>
-        <li id="login">
-            <a href="/users/login">
-                <span class="icon"><i class="fa-solid fa-right-to-bracket"></i></span>
-                <span class="text">Авторизация</span>
-            </a>
-        </li>
-        <li>
-            <a href="/about">
-                <span class="icon"><i class="fa-solid fa-address-card"></i></span>
-                <span class="text">О нас</span>
-            </a>
-        </li>
+{{/*        <li id="login">*/}}
+{{/*            <a href="/users/login">*/}}
+{{/*                <span class="icon"><i class="fa-solid fa-right-to-bracket"></i></span>*/}}
+{{/*                <span class="text">Авторизация</span>*/}}
+{{/*            </a>*/}}
+{{/*        </li>*/}}
+{{/*        <li>*/}}
+{{/*            <a href="/about">*/}}
+{{/*                <span class="icon"><i class="fa-solid fa-address-card"></i></span>*/}}
+{{/*                <span class="text">О нас</span>*/}}
+{{/*            </a>*/}}
+{{/*        </li>*/}}
         <li class="settings">
             {{/*            <a href="/settings">*/}}
             {{/*                <span class="icon"><i class="fa-solid fa-gear"></i></span>*/}}
@@ -82,17 +82,35 @@
 <!--    </header>-->
     <main>
         <div class="main-head">
-            <h2>Текущие заявки - 61</h2>
-            <ul>
-                <li>Текущие</li>
-                <li>Новые</li>
-                <li>Закрытые</li>
-                <li>Все</li>
-                <li>Заявки по узлам</li>
+            <h2>Текущие заявки - </h2>
+            <div class="select-block">
+                <span class="select-block-span">Отдел</span>
+                <div class="select">
+                    <div id="Department" class="select-button" value="1" style="background-color: #0177fd; color: #ffffff">
+                        (все отделы)
+                    </div>
+                    <ul class="departments">
+                        <li value="1">(все отделы)</li>
+                        <li value="2">Склад</li>
+                        <li value="3">Админы</li>
+                        <li value="4">Менеджеры</li>
+                        <li value="5">Прорабы</li>
+                        <li value="6">ТВ</li>
+                        <li value="7">Телефония</li>
+                        <li value="8">Техники</li>
+                    </ul>
+                </div>
+            </div>
+            <ul class="tabs">
+                <li class="active" id="status-1">Текущие</li>
+                <li id="status-2">Новые</li>
+                <li id="status-3">Закрытые</li>
+                <li id="status-4">Все</li>
+{{/*                <li>Заявки по узлам</li>*/}}
             </ul>
         </div>
         <section>
-                <table>
+                <table id="applications-table">
                     <thead>
                     <tr>
                         <th class="table-column1">#</th>
@@ -104,220 +122,12 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr class="hard">
-                        <td class="table-column1">18170</td>
-                        <td class="table-column2">Пичугина 16</td>
-                        <td class="table-column3">ИВАНОВ ИВАН ИВАНОВИЧ</td>
-                        <td class="table-column4">Создание данных</td>
-                        <td class="table-column5">Новая</td>
-                        <td class="table-column6">2020.10.31 15:54</td>
-                    </tr>
-                    <tr class="medium">
-                        <td class="table-column1">18171</td>
-                        <td class="table-column2">Пушкина 12</td>
-                        <td class="table-column3">Смирнов ИВАН ИВАНОВИЧ</td>
-                        <td class="table-column4">Исправление данных</td>
-                        <td class="table-column5">Старая</td>
-                        <td class="table-column6">2019.10.31 15:54</td>
-                    </tr>
-                    <tr  class="easy">
-                        <td class="table-column1">18172</td>
-                        <td class="table-column2">Красина 60</td>
-                        <td class="table-column3">Соболев ИВАН ИВАНОВИЧ</td>
-                        <td class="table-column4">Удаление данных</td>
-                        <td class="table-column5">Перресоздана</td>
-                        <td class="table-column6">2018.10.31 15:54</td>
-                    </tr>
-                    <tr>
-                        <td class="table-column1">18170</td>
-                        <td class="table-column2">Пичугина 16</td>
-                        <td class="table-column3">ИВАНОВ ИВАН ИВАНОВИЧ</td>
-                        <td class="table-column4">Создание данных</td>
-                        <td class="table-column5">Новая</td>
-                        <td class="table-column6">2020.10.31 15:54</td>
-                    </tr>
-                    <tr>
-                        <td class="table-column1">18171</td>
-                        <td class="table-column2">Пушкина 12</td>
-                        <td class="table-column3">Смирнов ИВАН ИВАНОВИЧ</td>
-                        <td class="table-column4">Исправление данных</td>
-                        <td class="table-column5">Старая</td>
-                        <td class="table-column6">2019.10.31 15:54</td>
-                    </tr>
-                    <tr>
-                        <td class="table-column1">18172</td>
-                        <td class="table-column2">Красина 60</td>
-                        <td class="table-column3">Соболев ИВАН ИВАНОВИЧ</td>
-                        <td class="table-column4">Удаление данных</td>
-                        <td class="table-column5">Перресоздана</td>
-                        <td class="table-column6">2018.10.31 15:54</td>
-                    </tr><tr>
-                        <td class="table-column1">18170</td>
-                        <td class="table-column2">Пичугина 16</td>
-                        <td class="table-column3">ИВАНОВ ИВАН ИВАНОВИЧ</td>
-                        <td class="table-column4">Создание данных</td>
-                        <td class="table-column5">Новая</td>
-                        <td class="table-column6">2020.10.31 15:54</td>
-                    </tr>
-                    <tr>
-                        <td class="table-column1">18171</td>
-                        <td class="table-column2">Пушкина 12</td>
-                        <td class="table-column3">Смирнов ИВАН ИВАНОВИЧ</td>
-                        <td class="table-column4">Исправление данных</td>
-                        <td class="table-column5">Старая</td>
-                        <td class="table-column6">2019.10.31 15:54</td>
-                    </tr>
-                    <tr>
-                        <td class="table-column1">18172</td>
-                        <td class="table-column2">Красина 60</td>
-                        <td class="table-column3">Соболев ИВАН ИВАНОВИЧ</td>
-                        <td class="table-column4">Удаление данных</td>
-                        <td class="table-column5">Перресоздана</td>
-                        <td class="table-column6">2018.10.31 15:54</td>
-                    </tr><tr>
-                        <td class="table-column1">18170</td>
-                        <td class="table-column2">Пичугина 16</td>
-                        <td class="table-column3">ИВАНОВ ИВАН ИВАНОВИЧ</td>
-                        <td class="table-column4">Создание данных</td>
-                        <td class="table-column5">Новая</td>
-                        <td class="table-column6">2020.10.31 15:54</td>
-                    </tr>
-                    <tr>
-                        <td class="table-column1">18171</td>
-                        <td class="table-column2">Пушкина 12</td>
-                        <td class="table-column3">Смирнов ИВАН ИВАНОВИЧ</td>
-                        <td class="table-column4">Исправление данных</td>
-                        <td class="table-column5">Старая</td>
-                        <td class="table-column6">2019.10.31 15:54</td>
-                    </tr>
-                    <tr>
-                        <td class="table-column1">18172</td>
-                        <td class="table-column2">Красина 60</td>
-                        <td class="table-column3">Соболев ИВАН ИВАНОВИЧ</td>
-                        <td class="table-column4">Удаление данных</td>
-                        <td class="table-column5">Перресоздана</td>
-                        <td class="table-column6">2018.10.31 15:54</td>
-                    </tr><tr>
-                        <td class="table-column1">18170</td>
-                        <td class="table-column2">Пичугина 16</td>
-                        <td class="table-column3">ИВАНОВ ИВАН ИВАНОВИЧ</td>
-                        <td class="table-column4">Создание данных</td>
-                        <td class="table-column5">Новая</td>
-                        <td class="table-column6">2020.10.31 15:54</td>
-                    </tr>
-                    <tr>
-                        <td class="table-column1">18171</td>
-                        <td class="table-column2">Пушкина 12</td>
-                        <td class="table-column3">Смирнов ИВАН ИВАНОВИЧ</td>
-                        <td class="table-column4">Исправление данных</td>
-                        <td class="table-column5">Старая</td>
-                        <td class="table-column6">2019.10.31 15:54</td>
-                    </tr>
-                    <tr>
-                        <td class="table-column1">18172</td>
-                        <td class="table-column2">Красина 60</td>
-                        <td class="table-column3">Соболев ИВАН ИВАНОВИЧ</td>
-                        <td class="table-column4">Удаление данных</td>
-                        <td class="table-column5">Перресоздана</td>
-                        <td class="table-column6">2018.10.31 15:54</td>
-                    </tr><tr>
-                        <td class="table-column1">18170</td>
-                        <td class="table-column2">Пичугина 16</td>
-                        <td class="table-column3">ИВАНОВ ИВАН ИВАНОВИЧ</td>
-                        <td class="table-column4">Создание данных</td>
-                        <td class="table-column5">Новая</td>
-                        <td class="table-column6">2020.10.31 15:54</td>
-                    </tr>
-                    <tr>
-                        <td class="table-column1">18171</td>
-                        <td class="table-column2">Пушкина 12</td>
-                        <td class="table-column3">Смирнов ИВАН ИВАНОВИЧ</td>
-                        <td class="table-column4">Исправление данных</td>
-                        <td class="table-column5">Старая</td>
-                        <td class="table-column6">2019.10.31 15:54</td>
-                    </tr>
-                    <tr>
-                        <td class="table-column1">18172</td>
-                        <td class="table-column2">Красина 60</td>
-                        <td class="table-column3">Соболев ИВАН ИВАНОВИЧ</td>
-                        <td class="table-column4">Удаление данных</td>
-                        <td class="table-column5">Перресоздана</td>
-                        <td class="table-column6">2018.10.31 15:54</td>
-                    </tr><tr>
-                        <td class="table-column1">18170</td>
-                        <td class="table-column2">Пичугина 16</td>
-                        <td class="table-column3">ИВАНОВ ИВАН ИВАНОВИЧ</td>
-                        <td class="table-column4">Создание данных</td>
-                        <td class="table-column5">Новая</td>
-                        <td class="table-column6">2020.10.31 15:54</td>
-                    </tr>
-                    <tr>
-                        <td class="table-column1">18171</td>
-                        <td class="table-column2">Пушкина 12</td>
-                        <td class="table-column3">Смирнов ИВАН ИВАНОВИЧ</td>
-                        <td class="table-column4">Исправление данных</td>
-                        <td class="table-column5">Старая</td>
-                        <td class="table-column6">2019.10.31 15:54</td>
-                    </tr>
-                    <tr>
-                        <td class="table-column1">18172</td>
-                        <td class="table-column2">Красина 60</td>
-                        <td class="table-column3">Соболев ИВАН ИВАНОВИЧ</td>
-                        <td class="table-column4">Удаление данных</td>
-                        <td class="table-column5">Перресоздана</td>
-                        <td class="table-column6">2018.10.31 15:54</td>
-                    </tr><tr>
-                        <td class="table-column1">18170</td>
-                        <td class="table-column2">Пичугина 16</td>
-                        <td class="table-column3">ИВАНОВ ИВАН ИВАНОВИЧ</td>
-                        <td class="table-column4">Создание данных</td>
-                        <td class="table-column5">Новая</td>
-                        <td class="table-column6">2020.10.31 15:54</td>
-                    </tr>
-                    <tr>
-                        <td class="table-column1">18171</td>
-                        <td class="table-column2">Пушкина 12</td>
-                        <td class="table-column3">Смирнов ИВАН ИВАНОВИЧ</td>
-                        <td class="table-column4">Исправление данных</td>
-                        <td class="table-column5">Старая</td>
-                        <td class="table-column6">2019.10.31 15:54</td>
-                    </tr>
-                    <tr>
-                        <td class="table-column1">18172</td>
-                        <td class="table-column2">Красина 60</td>
-                        <td class="table-column3">Соболев ИВАН ИВАНОВИЧ</td>
-                        <td class="table-column4">Удаление данных</td>
-                        <td class="table-column5">Перресоздана</td>
-                        <td class="table-column6">2018.10.31 15:54</td>
-                    </tr><tr>
-                        <td class="table-column1">18170</td>
-                        <td class="table-column2">Пичугина 16</td>
-                        <td class="table-column3">ИВАНОВ ИВАН ИВАНОВИЧ</td>
-                        <td class="table-column4">Создание данных</td>
-                        <td class="table-column5">Новая</td>
-                        <td class="table-column6">2020.10.31 15:54</td>
-                    </tr>
-                    <tr>
-                        <td class="table-column1">18171</td>
-                        <td class="table-column2">Пушкина 12</td>
-                        <td class="table-column3">Смирнов ИВАН ИВАНОВИЧ</td>
-                        <td class="table-column4">Исправление данных</td>
-                        <td class="table-column5">Старая</td>
-                        <td class="table-column6">2019.10.31 15:54</td>
-                    </tr>
-                    <tr>
-                        <td class="table-column1">18172</td>
-                        <td class="table-column2">Красина 60</td>
-                        <td class="table-column3">Соболев ИВАН ИВАНОВИЧ</td>
-                        <td class="table-column4">Удаление данных</td>
-                        <td class="table-column5">Перресоздана</td>
-                        <td class="table-column6">2018.10.31 15:54</td>
-                    </tr>
                     </tbody>
                 </table>
         </section>
     </main>
     <footer>2022 ООО "Орбител". Все права защищены</footer>
+    <script src="/assets/js/send.js"></script>
     <script src="/assets/js/script.js"></script>
     <script src="/assets/js/application.js"></script>
 </body>

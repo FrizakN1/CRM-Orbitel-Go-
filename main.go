@@ -11,5 +11,5 @@ func main() {
 
 	database.Connection(config)
 
-	_ = router.Initialization().Run("127.0.0.1:8080")
+	_ = router.Initialization().Run(config.Address + ":" + config.Port)
 }

@@ -13,7 +13,9 @@ var sessionMap map[string]structures.Session
 
 func prepareUser() []string {
 	sessionMap = make(map[string]structures.Session)
-	query = make(map[string]*sql.Stmt)
+	if query == nil {
+		query = make(map[string]*sql.Stmt)
+	}
 	errors := make([]string, 0)
 	var e error
 

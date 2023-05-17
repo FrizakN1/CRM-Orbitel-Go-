@@ -11,12 +11,13 @@ main {
     margin-bottom: 30px;
 }
 
-.main-head ul{
+.main-head .tabs{
     display: flex;
     justify-content: space-between;
+    margin-left: 145px;
 }
 
-.main-head ul li{
+.main-head .tabs li{
     cursor: pointer;
     transition: 0.4s;
     color: #4a525f;
@@ -24,14 +25,19 @@ main {
     border-bottom: 1px solid transparent;
 }
 
-.main-head ul li:hover{
+.main-head .tabs li:hover{
+    color: #0177fd;
+    border-bottom: 1px solid #0177fd;
+}
+
+.main-head .tabs li.active{
     color: #0177fd;
     border-bottom: 1px solid #0177fd;
 }
 
 section {
     width: 100%;
-    height: 92%;
+    height: calc(100% - 94px);
     overflow-y: scroll;
     background-color: #ffffff;
 }
@@ -39,6 +45,10 @@ section {
 h2 {
     font-size: 2em;
     color: #0177fd;
+}
+
+.main-head h2{
+    width: 425px;
 }
 
 table {
@@ -128,16 +138,16 @@ tbody tr:hover {
     background-color: rgba(0,0,0, 0.05);
 }
 
-.hard {
+.critical {
     background-color: #ffdede;
     color: #ff0000;
 }
 
-.medium {
+.high {
     color: #ff0000;
 }
 
-.easy {
+.low {
     color: #0177fd;
     background-color: #d7e8fd;
 }
@@ -412,97 +422,4 @@ label textarea:focus ~ i{
     font-size: 13px;
     color: #4a525f;
     transition: 0.3s;
-}
-
-
-.select {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.select div {
-    cursor: pointer;
-    border-radius: 5px;
-    border: 1px solid #0177fd;
-    padding: 10px 20px;
-    width: 152px;
-    transition: 0.5s;
-    display: flex;
-    justify-content: center;
-    user-select: none;
-}
-
-.select div i{
-    color: #4a525f;
-    margin-left: 5px;
-    transition: 0.5s;
-}
-
-.select.active div {
-    border: 1px solid #0177fd;
-    background-color: #0177fd;
-    color: #ffffff;
-}
-
-.select.active div i{
-    color: #ffffff;
-}
-
-.select ul {
-    position: absolute;
-    height: 0;
-    top: 39px;
-    width: 125px;
-    transition: 0.2s;
-    background-color: #ffffff;
-    box-shadow: 0 0 10px rgba(0,0,0,0.25);
-    z-index: 10;
-}
-
-.select.active ul {
-    background-color: #ffffff;
-    max-height: max-content;
-}
-
-.select.active ul.priority {
-    height: 128px;
-    transition: 0.1s;
-}
-
-.select.active ul.departments {
-    height: 256px;
-    transition: 0.1s;
-}
-
-.select ul li{
-    visibility: hidden;
-    opacity: 0;
-    color: #0177fd;
-    transition: 0.3s;
-    cursor: pointer;
-    padding: 8px;
-    text-align: center;
-}
-
-.select.active ul li{
-    visibility: visible;
-    opacity: 1;
-    transition: 0.3s;
-}
-
-.select.active ul li:hover{
-    background-color: #0177fd;
-    color: #ffffff
-}
-
-.select-block {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin: 0 20px;
-}
-.select-block-span {
-    margin-bottom: 10px;
 }
