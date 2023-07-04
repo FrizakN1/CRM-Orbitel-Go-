@@ -11,29 +11,35 @@ main {
     margin-bottom: 30px;
 }
 
-.main-head ul{
+.main-head .tabs{
     display: flex;
     justify-content: space-between;
+    margin-left: 145px;
 }
 
-.main-head ul li{
+.main-head .tabs li{
     cursor: pointer;
-    transition: 0.4s;
+    transition-duration: 0.4s;
     color: #e2e4ee;
     padding: 5px 5px;
     border-bottom: 1px solid transparent;
 }
 
-.main-head ul li:hover{
+.main-head .tabs li:hover{
+    color: #0177fd;
+    border-bottom: 1px solid #0177fd;
+}
+
+.main-head .tabs li.active{
     color: #0177fd;
     border-bottom: 1px solid #0177fd;
 }
 
 section {
     width: 100%;
-    height: 92%;
+    height: calc(100% - 94px);
     overflow-y: scroll;
-    background-color: #181818;
+    background-color: #2f2f2f;
 }
 
 h2 {
@@ -41,25 +47,29 @@ h2 {
     color: #0177fd;
 }
 
+.main-head h2{
+    width: 425px;
+}
+
 table {
     width: 100%;
     height: max-content;
     border-collapse: collapse;
-    background-color: #181818;
-    transition: 0.5s background-color;
+    background-color: #2f2f2f;
+    transition-duration: 0.5s;
 }
 
 th, td {
-    border: 1px solid #2f2f2f;
+    border: 1px solid #181818;
     padding: 10px;
-    transition: 0.5s border;
+    transition-duration: 0.5s;
 }
 
 th {
     text-transform: uppercase;
     font-weight: normal;
     font-size: 0.8em;
-    color: #b0b0b0;
+    color: #e2e4ee;
     cursor: pointer;
 }
 
@@ -94,40 +104,39 @@ td {
     width: 10%;
 }
 
-
 section::-webkit-scrollbar{
     width: 20px;
 }
 
 section::-webkit-scrollbar-track{
-    background-color: #181818;
-    transition: 0.5s background-color;
+    background-color: #2f2f2f;
+    transition-duration: 0.5s;
 }
 
 section::-webkit-scrollbar-thumb{
-    background-color: #2f2f2f;
+    background-color: #3f3f3f;
     border-radius: 10px;
-    border: 5px solid #181818;
-    transition: 0.5s;
+    border: 5px solid white;
+    transition-duration: 0.5s;
 }
 
 section::-webkit-scrollbar-thumb:hover{
-    background-color: #3f3f3f;
-}
-
-section::-webkit-scrollbar-thumb:active{
     background-color: #4f4f4f;
 }
 
+section::-webkit-scrollbar-thumb:active{
+    background-color: #5f5f5f;
+}
+
 tbody tr {
-    transition: 0.1s ;
+    transition-duration: 0.1s;
     cursor: pointer;
-    color: #e2e4ee;
     transition: 0.5s color;
+    color: #e2e4ee;
 }
 
 tbody tr:hover {
-    background-color: rgba(255,255,255, 0.05);
+    background-color: rgba(0,0,0, 0.05);
 }
 
 .critical {
@@ -144,7 +153,6 @@ tbody tr:hover {
     background-color: #d7e8fd;
 }
 
-
 label {
     width: 500px;
     display: flex;
@@ -158,7 +166,7 @@ label span{
     left: 0;
     padding: 10px 10px 10px;
     pointer-events: none;
-    transition: 500ms;
+    transition-duration: 500ms;
 }
 
 label input{
@@ -209,7 +217,7 @@ label i{
     background-color: #0177fd;
     width: 100%;
     border-radius: 4px;
-    transition: 500ms;
+    transition-duration: 500ms;
     pointer-events: none;
 }
 
@@ -236,11 +244,23 @@ label textarea:focus ~ i{
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    background-color: #181818;
+    background-color: #2f2f2f;
     border-radius: 20px;
     box-shadow: 0 0 10px rgba(0,0,0,0.25);
     padding-bottom: 20px;
-    transition: 0.5s background-color;
+    transition-duration: 0.5s;
+}
+
+.application-form input{
+    border-radius: 10px;
+    border: 1px solid #0177fd;
+    color: #e2e4ee;
+}
+
+.application-form textarea{
+    border-radius: 10px;
+    border: 1px solid #0177fd;
+    color: #e2e4ee;
 }
 
 .sides {
@@ -293,10 +313,10 @@ label textarea:focus ~ i{
     left: 0;
     height: 100%;
     width: 100%;
-    background-color: #181818;
+    background-color: #2f2f2f;
     opacity: 0.8;
-    z-index: 10;
-    transition: 0.5s background-color;
+    z-index: 100;
+    transition-duration: 0.5s;
 }
 
 .disable-top {
@@ -320,19 +340,6 @@ label textarea:focus ~ i{
     width: 100%;
 }
 
-
-.sides {
-    padding: 50px;
-    display: flex;
-}
-
-.right-side, .left-side {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-
 .right-side {
     border-left: 1px solid #0177fd;
     flex-direction: column;
@@ -346,13 +353,13 @@ label textarea:focus ~ i{
 .btns{
     display: flex;
     width: 500px;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .btn {
     user-select: none;
     border-radius: 5px;
-    padding: 10px;
+    padding: 10px 30px;
     margin: 0 5px;
     cursor: pointer;
     color: #ffffff;
@@ -376,10 +383,10 @@ label textarea:focus ~ i{
     width: 100%;
     max-height: 400px;
     overflow-y: scroll;
-    background-color: #ffffff;
+    background-color: #2f2f2f;
     border-radius: 10px;
-    z-index: 100;
-    transition: 0.2s;
+    transition-duration: 0.2s;
+    z-index: 10000;
 }
 
 .abonent-list::-webkit-scrollbar{
@@ -408,7 +415,8 @@ label textarea:focus ~ i{
     flex-direction: column;
     align-items: center;
     padding: 5px;
-    transition: 0.3s;
+    transition-duration: 0.3s;
+    color: #e2e4ee;
 }
 
 .abonent-list .abonent:hover {
@@ -426,103 +434,202 @@ label textarea:focus ~ i{
 
 .abonent-list .abonent .address {
     font-size: 13px;
-    color: #4a525f;
-    transition: 0.3s;
+    color: #d0d2dc;
+    transition-duration: 0.3s;
 }
 
-.select {
-    position: relative;
+.application-view {
+    height: max-content;
+}
+
+.application-view .contain {
+    height: max-content;
+    flex-direction: column;
+}
+
+.application-view .contain .sides{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.application-view .contain .left{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    width: 760px;
+    height: min-content;
 }
 
-.select div {
-    cursor: pointer;
-    border-radius: 5px;
-    border: 1px solid #0177fd;
-    padding: 10px 20px;
-    width: 152px;
-    transition: 0.5s;
+.application-view .contain .table {
+    background-color: #2f2f2f;
+    border-top: 1px solid #181818;
+    border-left: 1px solid #181818;
+    width: 100%;
+    margin-bottom: 100px;
+    color: #e2e4ee;
+}
+
+.application-view .contain .table a {
+    color: #e2e4ee;
+}
+
+.application-view .left .history {
+    background-color: #2f2f2f;
+    padding: 20px 50px;
+}
+
+.application-view .contain .records {
+    background-color: #2f2f2f;
+    border-top: 1px solid #181818;
+    border-right: 1px solid #181818;
+    width: 100%;
+}
+
+.application-view .contain .left .record{
     display: flex;
-    justify-content: center;
-    user-select: none;
+    width: 100%;
+    border-bottom: 1px solid #181818;
 }
 
-.select div i{
-    color: #4a525f;
-    margin-left: 5px;
-    transition: 0.5s;
+.application-view .contain .left .record div{
+    display: flex;
+    width: max-content;
+    border-left: 1px solid #181818;
+    color: #e2e4ee;
 }
 
-.select.active div {
+
+.application-view .contain .left .record .col1{
+    width: 25%;
+}.application-view .contain .left .record .col2{
+     width: 25%;
+ }.application-view .contain .left .record .event{
+      width: 50%;
+  }
+
+
+.application-view .contain .left .event{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.application-view .contain .left .event .name {
+    margin-bottom: 5px;
+}
+
+.application-view .contain .left .event .comment {
+    font-weight: bold;
+}
+
+.application-view .contain .left .record div{
+    padding: 5px;
+}
+
+.application-view .contain .row {
+    display: flex;
+    border-bottom: 1px solid #181818;
+}
+
+.application-view .contain .row div{
+    padding: 10px;
+    border-right: 1px solid #181818;
+}
+
+.application-view .contain .row .key{
+    width: 40%;
+}
+
+.application-view .contain .row .value{
+    width: 60%;
+}
+
+.application-view .contain .row .border-contain{
+    width: 100%;
+}
+
+.application-view .contain .row .border{
     border: 1px solid #0177fd;
-    background-color: #0177fd;
-    color: #ffffff;
+    padding: 0;
 }
 
-.select.active div i{
-    color: #ffffff;
+.application-view .contain .right{
+    display: flex;
+    width: 660px;
+    background-color: #2f2f2f;
+    border-radius: 20px;
+    padding: 20px 60px;
+    flex-direction: column;
+    height: max-content;
+    color: #e2e4ee;
 }
 
-.select ul {
-    position: absolute;
-    height: 0;
-    top: 39px;
-    width: 125px;
-    transition: 0.2s;
-    background-color: #ffffff;
-    box-shadow: 0 0 10px rgba(0,0,0,0.25);
-    z-index: 10;
-}
-
-.select.active ul {
-    background-color: #ffffff;
-    max-height: max-content;
-}
-
-.select.active ul.priority {
-    height: 128px;
-    transition: 0.1s;
-}
-
-.select.active ul.departments {
-    height: 256px;
-    transition: 0.1s;
-}
-
-.select ul li{
-    visibility: hidden;
-    opacity: 0;
+.application-view .contain h3{
+    width: 100%;
+    font-size: 1.5em;
     color: #0177fd;
-    transition: 0.3s;
-    cursor: pointer;
-    padding: 8px;
     text-align: center;
+    height: max-content;
+    margin-bottom: 25px;
 }
 
-.select.active ul li{
-    visibility: visible;
-    opacity: 1;
-    transition: 0.3s;
-}
-
-.select.active ul li:hover{
+.application-view .contain .right .control .btn{
+    font-size: 1.25em;
+    cursor: pointer;
+    color: #ffffff;
     background-color: #0177fd;
-    color: #ffffff
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    transition-duration: 300ms;
 }
 
-.select-block {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin: 0 20px;
+.application-view .contain .right .control .btn:hover{
+    background-color: #005acc;
 }
-.select-block-span {
+
+.application-view .contain .right .control .option{
+    font-size: 1.25em;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.application-view .contain .right .control .option .option-span{
     margin-bottom: 10px;
-    color: #ffffff;
+    display: flex;
 }
 
-.select-button-span {
+.application-view .contain .right .select{
+    font-size: 16px !important;
+}
+
+.application-view .contain .right .select div{
+    font-size: 16px !important;
+}
+
+.application-view .contain .right .control .option button{
+    font-size: 16px;
+    cursor: pointer;
     color: #ffffff;
+    background-color: #0177fd;
+    width: max-content;
+    padding: 5px 10px;
+    border-radius: 10px;
+    margin: 0 0 0 15px;
+    height: 38px;
+    transition-duration: 300ms;
+}
+
+.application-view .contain .right .control .option button:hover{
+    background-color: #005acc;
+}
+
+
+.application-view .contain .right .control .option textarea{
+    font-size: 16px;
+    border-radius: 10px;
+    border: 1px solid #0177fd;
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: #2f2f2f;
 }

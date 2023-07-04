@@ -1,0 +1,74 @@
+{{ define "abonents-create" }}
+    <!DOCTYPE html>
+    <html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="/assets/css/null.style.css">
+        <link rel="stylesheet" href="/assets/css/all.min.css">
+        <link rel="stylesheet" href="/assets/css/{{.Theme}}/style.css" id="theme">
+        <link rel="stylesheet" href="/assets/css/{{.Theme}}/users.css">
+        <title>Создание абонента</title>
+    </head>
+    <body>
+    <div class="preload">
+        <div class="preload-contain">
+            <div class="preload-icon">
+                <img src="/assets/image/rocket.svg" alt="Загрузка">
+            </div>
+        </div>
+    </div>
+    {{template "aside" .}}
+    <main>
+        <h2>Создание абонента</h2>
+        <section>
+            <div class="contain">
+                <div class="abonent-form">
+                    <label>
+                        <input type="text" id="Name" required="required">
+                        <span>ФИО / Название организации</span>
+                        <i></i>
+                    </label>
+                    <label>
+                        <input type="text" id="RegisteredAddress" required="required">
+                        <span>Адрес по прописке</span>
+                        <i></i>
+                    </label>
+                    <label>
+                        <input type="text" id="ActualAddress" required="required">
+                        <span>Фактический адрес</span>
+                        <i></i>
+                    </label>
+                    <label>
+                        <input type="text" id="Phone" required="required">
+                        <span>Номер телефона</span>
+                        <i></i>
+                    </label>
+                    <label>
+                        <input type="text" id="IPAddress" required="required">
+                        <span>IP адрес</span>
+                        <i></i>
+                    </label>
+                    <div style="display: flex; justify-content: space-between">
+                        <label style="width: 49%">
+                            <input type="text" id="PassportSeries" required="required">
+                            <span>Серия паспорта</span>
+                            <i></i>
+                        </label>
+                        <label style="width: 50%">
+                            <input type="text" id="PassportNumber" required="required">
+                            <span>Номер паспорта</span>
+                            <i></i>
+                        </label>
+                    </div>
+                    <div class="btn unblock" id="createAbonent">Создать</div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>2022 ООО "Орбител". Все права защищены</footer>
+    <script src="/assets/js/script.js"></script>
+    <script src="/assets/js/send.js"></script>
+    <script src="/assets/js/abonents.js"></script>
+    </body>
+    </html>
+{{ end }}

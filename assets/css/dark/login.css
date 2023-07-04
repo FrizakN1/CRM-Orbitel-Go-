@@ -1,6 +1,6 @@
 body{
     font-family: 'Montserrat', sans-serif;
-    background-color: #2f2f2f;
+    background-color: #3f3f3f;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -53,7 +53,7 @@ body{
 
 .login{
     position: absolute;
-    background-color: #181818;
+    background-color: #2f2f2f;
     border-radius: 40px;
     /*box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);*/
     display: flex;
@@ -83,12 +83,12 @@ body{
 }
 
 .login div label span{
-    color: #e2e4ee;
     position: absolute;
     left: 0;
     padding: 10px 10px 10px;
     pointer-events: none;
-    transition: 500ms;
+    transition-duration: 500ms;
+    color: #e2e4ee;
 }
 
 .login div label input{
@@ -119,7 +119,7 @@ body{
     background-color: #0177fd;
     width: 100%;
     border-radius: 4px;
-    transition: 500ms;
+    transition-duration: 500ms;
     pointer-events: none;
 }
 
@@ -140,11 +140,11 @@ body{
 
 .login button {
     background-color: #0177fd;
-    color: white;
+    color: #ffffff;
     font-size: inherit;
     border-radius: 10px;
     padding: 10px 30px;
-    transition: 500ms;
+    transition-duration: 500ms;
 }
 
 .login button:active {
@@ -154,6 +154,6 @@ body{
 footer{
     position: absolute;
     bottom: 5px;
-    color: #e2e4ee;
     user-select: none;
+    color: #e2e4ee;
 }

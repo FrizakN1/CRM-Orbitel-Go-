@@ -2,7 +2,7 @@
     position: fixed;
     height: 100vh;
     width: 100vw;
-    background-color: #2f2f2f;
+    background-color: #3f3f3f;
     z-index: 10000;
 }
 
@@ -11,7 +11,7 @@
 }
 
 .loaded_hiding .preload {
-    transition: 0.3s;
+    transition-duration: 0.3s;
     opacity: 0;
 }
 
@@ -21,7 +21,7 @@
     right: 40%;
     bottom: 45%;
     top: 35%;
-    background-color: #2f2f2f;
+    background-color: #3f3f3f;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -71,7 +71,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #2f2f2f;
+    background-color: #3f3f3f;
     width: 175px;
     height: 230px;
     border-radius: 50%;
@@ -91,30 +91,32 @@ body{
     min-height: 100vh;
     height: max-content;
     font-family: 'Montserrat', sans-serif;
-    background-color: #2f2f2f;
+    background-color: #3f3f3f;
     font-size: 16px;
     display: flex;
     flex-direction: column;
     padding-left: 130px;
-    transition: 0.5s background-color;
+    /*transition-duration: 0.5s;*/
 }
 
 footer{
     position: absolute;
-    bottom: -15px;
-    color: #e2e4ee;
+    bottom: -35px;
     user-select: none;
+    text-align: center;
+    width: calc(100% - 130px);
+    padding: 10px;
 }
 
 nav {
-    background-color: #181818;
+    background-color: #2f2f2f;
     position: fixed;
     width: 75px;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    transition: 500ms;
+    transition-duration: 500ms;
     inset: 10px;
     z-index: 10;
 }
@@ -128,7 +130,7 @@ nav {
     top: 0;
     left: 0;
     padding: 0 23px;
-    border-bottom: 1px solid rgba(255,255,255,0.25);
+    border-bottom: 1px solid rgba(0,0,0,0.25);
     height: 60px;
 }
 
@@ -137,9 +139,9 @@ nav {
     position: absolute;
     width: 30px;
     height: 2px;
-    background-color: #fff;
+    background-color: #e2e4ee;
     transform: translateY(-10px);
-    transition: 500ms;
+    transition-duration: 500ms;
 }
 
 .menuBtn:after {
@@ -147,15 +149,15 @@ nav {
     position: absolute;
     width: 30px;
     height: 2px;
-    background-color: #fff;
-    box-shadow: 0 -10px 0 #fff;
+    background-color: #e2e4ee;
+    box-shadow: 0 -10px 0 #e2e4ee;
     transform: translateY(10px);
-    transition: 500ms;
+    transition-duration: 500ms;
 }
 
 nav.active {
     width: 270px;
-    border-bottom: 1px solid rgba(255,255,255,0.25);
+    border-right: 1px solid rgba(0,0,0,0.25);
 }
 
 nav.active .menuBtn:before {
@@ -183,12 +185,12 @@ nav ul li{
     height: 80px;
     border-radius: 12px;
     border: 8px solid transparent;
-    transition: 500ms;
+    transition-duration: 500ms;
 }
 
 nav ul li.active{
     transform: translateX(30px);
-    background-color: #2f2f2f;
+    background-color: #3f3f3f;
 }
 
 nav.active ul li.active{
@@ -199,29 +201,29 @@ nav.active ul li.active{
 nav ul li:before{
     content: '';
     position: absolute;
-    background-color: #181818;
+    background-color: #2f2f2f;
     height: 20px;
     width: 20px;
     top: -28px;
     left: 17px;
     border-bottom-right-radius: 20px;
-    box-shadow: 6px 5px 0 4px #2f2f2f;
+    box-shadow: 6px 5px 0 4px #3f3f3f;
     opacity: 0;
-    transition: 500ms;
+    transition-duration: 500ms;
 }
 
 nav ul li:after{
     content: '';
     position: absolute;
-    background-color: #181818;
+    background-color: #2f2f2f;
     height: 20px;
     width: 20px;
     bottom: -28px;
     left: 17px;
     border-top-right-radius: 20px;
-    box-shadow: 6px -5px 0 4px #2f2f2f;
+    box-shadow: 6px -5px 0 4px #3f3f3f;
     opacity: 0;
-    transition: 500ms;
+    transition-duration: 500ms;
 }
 
 nav ul li.active:before, li.active:after{
@@ -254,16 +256,16 @@ nav ul li a .icon{
     align-items: center;
     height: 60px;
     min-width: 60px;
-    background-color: #181818;
+    background-color: #2f2f2f;
     border-radius: 10px;
     color: #e2e4ee;
     font-size: 1.6em;
-    transition: 0.5s;
+    transition-duration: 0.5s;
 }
 
 nav ul li.active a .icon{
     background-color: #0177fd;
-    color: #ffffff;
+    color: #fff;
 }
 
 nav ul li.active a .icon:before{
@@ -272,22 +274,22 @@ nav ul li.active a .icon:before{
     left: -50px;
     background-color: #0177fd;
     border-radius: 50%;
-    border: 5px solid #2f2f2f;
+    border: 5px solid #3f3f3f;
     height: 28px;
     width: 28px;
-    transition: 0.5s;
+    transition-duration: 0.5s;
 }
 
 nav ul li a .text{
     position: relative;
     padding: 0 15px;
-    color: #2f2f2f;
+    color: #e2e4ee;
     display: flex;
     align-items: center;
     height: 60px;
     visibility: hidden;
     opacity: 0;
-    transition: 500ms;
+    transition-duration: 500ms;
     white-space: nowrap;
     font-size: 1.2em;
 }
@@ -304,54 +306,6 @@ nav.active ul li.active a .text{
     color: #ffffff;
 }
 
-header {
-    position: fixed;
-    display: flex;
-    height: 60px;
-    inset: 10px;
-    background-color: #4a525f;
-    z-index: 5;
-    justify-content: flex-end;
-    align-items: center;
-}
-
-header .profile {
-    display: flex;
-    align-items: center;
-    background-color: initial;
-    cursor: pointer;
-    height: 100%;
-    padding: 0 20px;
-}
-
-header .profile:active {
-    background-color: #525968;
-}
-
-header .profile span{
-    user-select: none;
-    color: #fff;
-    padding: 0 10px;
-    pointer-events: none;
-}
-
-header .profile div {
-    user-select: none;
-    pointer-events: none;
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-}
-
-header .profile img {
-    height: 100%;
-    width: 100%;
-}
-
 .settings {
     position: absolute;
     bottom: 100px;
@@ -360,13 +314,13 @@ header .profile img {
 nav ul li .text{
     position: relative;
     padding: 0 15px;
-    color: #2f2f2f;
+    color: #3f3f3f;
     display: flex;
     align-items: center;
     height: 30px;
     visibility: hidden;
     opacity: 0;
-    transition: 500ms;
+    transition-duration: 500ms;
     white-space: nowrap;
     font-size: 1.2em;
 }
@@ -383,7 +337,7 @@ nav.active ul li .text{
 
 .switch {
     border: 1px solid #0177fd;
-    background-color: #000000;
+    background-color: #2f2f2f;
     border-radius: 15px;
     width: 60px;
     height: 31px;
@@ -391,7 +345,7 @@ nav.active ul li .text{
     align-items: center;
     padding: 5px;
     position: relative;
-    transition: 0.5s;
+    transition-duration: 0.5s;
 }
 
 .switch div{
@@ -401,7 +355,7 @@ nav.active ul li .text{
     background-color: #0177fd;
     position: absolute;
     left: 5px;
-    transition: 0.5s;
+    transition-duration: 0.5s;
 }
 
 .switch.on {
@@ -415,5 +369,109 @@ nav.active ul li .text{
     background-color: #ffffff;
     position: absolute;
     left: 34px;
-    transition: 0.5s;
+    transition-duration: 0.5s;
+}
+
+.select {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.select div {
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid #0177fd;
+    padding: 10px 20px;
+    width: 152px;
+    transition-duration: 0.5s;
+    display: flex;
+    justify-content: center;
+    user-select: none;
+    color: #e2e4ee;
+}
+
+.select div i{
+    color: #e2e4ee;
+    margin-left: 5px;
+    transition-duration: 0.5s;
+}
+
+.select.active div {
+    border: 1px solid #0177fd;
+    background-color: #0177fd;
+    color: #ffffff;
+}
+
+.select.active div i{
+    color: #ffffff;
+}
+
+.select ul {
+    position: absolute;
+    height: 0;
+    top: 39px;
+    width: 125px;
+    transition-duration: 0.2s;
+    background-color: #2f2f2f;
+    box-shadow: 0 0 10px rgba(0,0,0,0.25);
+    z-index: 10000000000;
+}
+
+.select.active ul {
+    background-color: #2f2f2f;
+    max-height: max-content;
+}
+
+.select.active ul.priority {
+    height: 128px;
+    transition-duration: 0.1s;
+}
+
+.select.active ul.departments {
+    height: 128px;
+    transition-duration: 0.1s;
+}
+
+.select.active ul.departments2 {
+    height: 160px;
+    transition-duration: 0.1s;
+}
+
+.select.active ul.roles {
+    height: 196px;
+    transition-duration: 0.1s;
+}
+
+.select ul li{
+    visibility: hidden;
+    opacity: 0;
+    color: #e2e4ee;
+    transition-duration: 0.3s;
+    cursor: pointer;
+    padding: 8px;
+    text-align: center;
+}
+
+.select.active ul li{
+    visibility: visible;
+    opacity: 1;
+    transition-duration: 0.3s;
+}
+
+.select.active ul li:hover{
+    background-color: #0177fd;
+    color: #ffffff
+}
+
+.select-block {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 20px;
+}
+.select-block-span {
+    margin-bottom: 10px;
+    color: #e2e4ee;
 }

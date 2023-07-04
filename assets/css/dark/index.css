@@ -8,26 +8,32 @@ table {
     width: 100%;
     height: max-content;
     border-collapse: collapse;
-    background-color: #181818;
-    transition: 0.5s background-color;
+    background-color: #2f2f2f;
+    transition-duration: 0.5s;
 }
 
 tr {
+    transition-duration: 0.5s;
+    transition: 0.2s background-color;
+    cursor: pointer;
     color: #e2e4ee;
-    transition: 0.5s color;
+}
+
+tr:hover {
+    background-color: #4f4f4f;
 }
 
 th, td {
-    border: 1px solid #2f2f2f;
+    border: 1px solid #181818;
     padding: 10px;
-    transition: 0.5s border;
+    transition-duration: 0.5s;
 }
 
 th {
     text-transform: uppercase;
     font-weight: normal;
     font-size: 0.8em;
-    color: #b0b0b0;
+    color: #e2e4ee;
     cursor: pointer;
 }
 
@@ -65,12 +71,16 @@ section {
     padding: 50px 20px 30px 0;
 }
 
+a {
+    color: #e2e4ee;
+}
+
 h3 {
     font-size: 1.3em;
     margin-bottom: 5px ;
     cursor: pointer;
+    transition-duration: 0.5s;
     color: #e2e4ee;
-    transition: 0.5s color;
 }
 
 .optional {
@@ -81,7 +91,6 @@ h3 {
 .optional div {
     margin-bottom: 10px;
     height: max-content;
-    /*color: #e2e4ee;*/
 }
 
 .optional div.active h3 {
@@ -98,7 +107,7 @@ h3 {
     height: 10px;
     width: 10px;
     position: absolute;
-    transition: 500ms;
+    transition-duration: 500ms;
     left: -15px;
     border-radius: 50%;
 }
@@ -106,7 +115,7 @@ h3 {
 .optional div ul {
     height: 0;
     overflow: hidden;
-    transition: 0.4s;
+    transition-duration: 0.4s;
     margin-left: 25px;
 }
 
@@ -115,10 +124,8 @@ h3 {
     cursor: pointer;
     width: max-content;
     padding: 0;
-    transition: 0.4s;
+    transition-duration: 0.4s;
     height: 0;
-    color: #e2e4ee;
-    transition: 0.5s color;
 }
 
 .optional div ul li:hover {

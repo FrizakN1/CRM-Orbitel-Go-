@@ -1,0 +1,73 @@
+{{ define "abonent-view" }}
+    <!DOCTYPE html>
+    <html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="/assets/css/null.style.css">
+        <link rel="stylesheet" href="/assets/css/all.min.css">
+        <link rel="stylesheet" href="/assets/css/{{.Theme}}/style.css" id="theme">
+        <link rel="stylesheet" href="/assets/css/{{.Theme}}/users.css">
+        <title>Просмотр абонента</title>
+    </head>
+    <body>
+    <div class="preload">
+        <div class="preload-contain">
+            <div class="preload-icon">
+                <img src="/assets/image/rocket.svg" alt="Загрузка">
+            </div>
+        </div>
+    </div>
+    {{template "aside" .}}
+    <main>
+        <div class="title">
+            <h2>Просмотр абонента: {{.Abonent.Name}}</h2>
+    {{if or (or (eq .SessionUser.Role.ID 1) (eq .SessionUser.Role.ID 6)) (eq .SessionUser.Role.ID 3)}}<a href="/abonents/edit/{{.Abonent.ID}}"><div class="btn edit"><i class="fa-solid fa-pen"></i> Изменить</div></a>{{end}}
+        </div>
+        <section class="abonent-info">
+            <div class="table">
+                <div class="row">
+                    <div class="key">ID</div>
+                    <div class="value">{{.Abonent.ID}}</div>
+                </div>
+                <div class="row">
+                    <div class="key">ФИО</div>
+                    <div class="value">{{.Abonent.Name}}</div>
+                </div>
+                <div class="row">
+                    <div class="key">Фактический адрес</div>
+                    <div class="value">{{.Abonent.ActualAddress}}</div>
+                </div>
+                <div class="row">
+                    <div class="key">Номер телефона</div>
+                    <div class="value">{{.Abonent.Phone}}</div>
+                </div>
+                <div class="row">
+                    <div class="key">Адрес по прописке</div>
+                    <div class="value">{{.Abonent.RegisteredAddress}}</div>
+                </div>
+                <div class="row">
+                    <div class="key">IP адрес</div>
+                    <div class="value">{{.Abonent.IPAddress}}</div>
+                </div>
+                <div class="row">
+                    <div class="key">Номер договора</div>
+                    <div class="value">{{.Abonent.ContractNumber}}</div>
+                </div>
+                <div class="row">
+                    <div class="key">Серия паспорта</div>
+                    <div class="value">{{.Abonent.PassportSeries}}</div>
+                </div>
+                <div class="row">
+                    <div class="key">Номер паспорта</div>
+                    <div class="value">{{.Abonent.PassportNumber}}</div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>2022 ООО "Орбител". Все права защищены</footer>
+    <script src="/assets/js/script.js"></script>
+    <script src="/assets/js/send.js"></script>
+    <script src="/assets/js/abonents.js"></script>
+    </body>
+    </html>
+{{ end }}

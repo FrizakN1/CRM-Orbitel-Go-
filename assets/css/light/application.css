@@ -19,7 +19,7 @@ main {
 
 .main-head .tabs li{
     cursor: pointer;
-    transition: 0.4s;
+    transition-duration: 0.4s;
     color: #4a525f;
     padding: 5px 5px;
     border-bottom: 1px solid transparent;
@@ -56,13 +56,13 @@ table {
     height: max-content;
     border-collapse: collapse;
     background-color: #ffffff;
-    transition: 0.5s background-color;
+    transition-duration: 0.5s;
 }
 
 th, td {
     border: 1px solid #dcdcdc;
     padding: 10px;
-    transition: 0.5s border;
+    transition-duration: 0.5s;
 }
 
 th {
@@ -110,14 +110,14 @@ section::-webkit-scrollbar{
 
 section::-webkit-scrollbar-track{
     background-color: #ffffff;
-    transition: 0.5s background-color;
+    transition-duration: 0.5s;
 }
 
 section::-webkit-scrollbar-thumb{
     background-color: #dcdcdc;
     border-radius: 10px;
     border: 5px solid white;
-    transition: 0.5s;
+    transition-duration: 0.5s;
 }
 
 section::-webkit-scrollbar-thumb:hover{
@@ -129,7 +129,7 @@ section::-webkit-scrollbar-thumb:active{
 }
 
 tbody tr {
-    transition: 0.1s;
+    transition-duration: 0.1s;
     cursor: pointer;
     transition: 0.5s color;
 }
@@ -165,7 +165,7 @@ label span{
     left: 0;
     padding: 10px 10px 10px;
     pointer-events: none;
-    transition: 500ms;
+    transition-duration: 500ms;
 }
 
 label input{
@@ -216,7 +216,7 @@ label i{
     background-color: #0177fd;
     width: 100%;
     border-radius: 4px;
-    transition: 500ms;
+    transition-duration: 500ms;
     pointer-events: none;
 }
 
@@ -247,7 +247,19 @@ label textarea:focus ~ i{
     border-radius: 20px;
     box-shadow: 0 0 10px rgba(0,0,0,0.25);
     padding-bottom: 20px;
-    transition: 0.5s background-color;
+    transition-duration: 0.5s;
+}
+
+.application-form input{
+    border-radius: 10px;
+    border: 1px solid #0177fd;
+    color: #000;
+}
+
+.application-form textarea{
+    border-radius: 10px;
+    border: 1px solid #0177fd;
+    color: #000;
 }
 
 .sides {
@@ -303,7 +315,7 @@ label textarea:focus ~ i{
     background-color: #ffffff;
     opacity: 0.8;
     z-index: 100;
-    transition: 0.5s background-color;
+    transition-duration: 0.5s;
 }
 
 .disable-top {
@@ -372,7 +384,7 @@ label textarea:focus ~ i{
     overflow-y: scroll;
     background-color: #ffffff;
     border-radius: 10px;
-    transition: 0.2s;
+    transition-duration: 0.2s;
     z-index: 10000;
 }
 
@@ -402,7 +414,7 @@ label textarea:focus ~ i{
     flex-direction: column;
     align-items: center;
     padding: 5px;
-    transition: 0.3s;
+    transition-duration: 0.3s;
 }
 
 .abonent-list .abonent:hover {
@@ -421,5 +433,198 @@ label textarea:focus ~ i{
 .abonent-list .abonent .address {
     font-size: 13px;
     color: #4a525f;
-    transition: 0.3s;
+    transition-duration: 0.3s;
+}
+
+.application-view {
+    height: max-content;
+}
+
+.application-view .contain {
+    height: max-content;
+    flex-direction: column;
+}
+
+.application-view .contain .sides{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.application-view .contain .left{
+    display: flex;
+    flex-direction: column;
+    width: 760px;
+    height: min-content;
+}
+
+.application-view .contain .table {
+    background-color: #ffffff;
+    border-top: 1px solid #dcdcdc;
+    border-left: 1px solid #dcdcdc;
+    width: 100%;
+    margin-bottom: 100px;
+    color: #000000;
+}
+
+.application-view .contain .table a {
+    color: #000000;
+}
+
+.application-view .left .history {
+    background-color: #ffffff;
+    padding: 20px 50px;
+}
+
+.application-view .contain .records {
+    background-color: #ffffff;
+    border-top: 1px solid #dcdcdc;
+    border-right: 1px solid #dcdcdc;
+    width: 100%;
+}
+
+.application-view .contain .left .record{
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid #dcdcdc;
+}
+
+.application-view .contain .left .record div{
+    display: flex;
+    width: max-content;
+    border-left: 1px solid #dcdcdc;
+}
+
+
+.application-view .contain .left .record .col1{
+    width: 25%;
+}.application-view .contain .left .record .col2{
+    width: 25%;
+}.application-view .contain .left .record .event{
+    width: 50%;
+}
+
+
+.application-view .contain .left .event{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.application-view .contain .left .event .name {
+    margin-bottom: 5px;
+}
+
+.application-view .contain .left .event .comment {
+    font-weight: bold;
+}
+
+.application-view .contain .left .record div{
+    padding: 5px;
+}
+
+.application-view .contain .row {
+    display: flex;
+    border-bottom: 1px solid #dcdcdc;
+}
+
+.application-view .contain .row div{
+    padding: 10px;
+    border-right: 1px solid #dcdcdc;
+}
+
+.application-view .contain .row .key{
+    width: 40%;
+}
+
+.application-view .contain .row .value{
+    width: 60%;
+}
+
+.application-view .contain .row .border-contain{
+    width: 100%;
+}
+
+.application-view .contain .row .border{
+    border: 1px solid #0177fd;
+    padding: 0;
+}
+
+.application-view .contain .right{
+    display: flex;
+    width: 660px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 20px 60px;
+    flex-direction: column;
+    height: max-content;
+}
+
+.application-view .contain h3{
+    width: 100%;
+    font-size: 1.5em;
+    color: #0177fd;
+    text-align: center;
+    height: max-content;
+    margin-bottom: 25px;
+}
+
+.application-view .contain .right .control .btn{
+    font-size: 1.25em;
+    cursor: pointer;
+    color: #ffffff;
+    background-color: #0177fd;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    transition-duration: 300ms;
+}
+
+.application-view .contain .right .control .btn:hover{
+    background-color: #005acc;
+}
+
+.application-view .contain .right .control .option{
+    font-size: 1.25em;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.application-view .contain .right .control .option .option-span{
+    margin-bottom: 10px;
+    display: flex;
+}
+
+.application-view .contain .right .select{
+    font-size: 16px !important;
+}
+
+.application-view .contain .right .select div{
+    font-size: 16px !important;
+}
+
+.application-view .contain .right .control .option button{
+    font-size: 16px;
+    cursor: pointer;
+    color: #ffffff;
+    background-color: #0177fd;
+    width: max-content;
+    padding: 5px 10px;
+    border-radius: 10px;
+    margin: 0 0 0 15px;
+    height: 38px;
+    transition-duration: 300ms;
+}
+
+.application-view .contain .right .control .option button:hover{
+    background-color: #005acc;
+}
+
+
+.application-view .contain .right .control .option textarea{
+    font-size: 16px;
+    border-radius: 10px;
+    border: 1px solid #0177fd;
+    padding: 10px;
+    margin-bottom: 15px;
 }

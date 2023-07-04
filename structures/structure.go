@@ -17,22 +17,31 @@ type Setting struct {
 	DbName  string
 }
 
+type Role struct {
+	ID   int
+	Name string
+}
+
 type User struct {
 	ID         int
 	Login      string
 	Password   string
 	Name       string
-	Role       int
+	Role       Role
 	Blocked    int
-	Department int
+	Department Department
 }
 
 type Abonent struct {
-	ID             int
-	Name           string
-	Address        string
-	Phone          string
-	ContractNumber string
+	ID                int
+	Name              string
+	RegisteredAddress string
+	ActualAddress     string
+	IPAddress         string
+	Phone             string
+	ContractNumber    string
+	PassportSeries    string
+	PassportNumber    string
 }
 
 type Application struct {
@@ -45,6 +54,7 @@ type Application struct {
 	Date        string
 	Department  Department
 	Priority    Priority
+	Creator     User
 }
 
 type Status struct {
@@ -60,4 +70,27 @@ type Priority struct {
 type Department struct {
 	ID   int
 	Name string
+}
+
+type Event struct {
+	ID          int
+	Name        string
+	User        User
+	Date        string
+	Application Application
+	Comment     string
+}
+
+type House struct {
+	ID              int
+	Name            string
+	Internet        int
+	TV              int
+	Telephony       int
+	NameMC          string
+	AddressMC       string
+	ChairmanName    string
+	ChairmanContact string
+	Agreement       int
+	Power           float64
 }

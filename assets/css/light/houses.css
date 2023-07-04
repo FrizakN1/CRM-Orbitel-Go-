@@ -6,8 +6,8 @@ main {
     padding: 30px 30px 0 0;
 }
 
-main div {
-    margin-bottom: 30px;
+main .contain {
+    margin-bottom: 80px;
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -18,14 +18,46 @@ h2 {
     color: #0177fd;
 }
 
-section {
+main .contain div {
+    display: flex;
+    justify-content: space-between;
+    width: 30%;
+}
+
+main .contain button{
+    background-color: #0177fd;
+    border: 2px solid #0177fd;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 8px 10px;
+    font-size: 1em;
+    border-radius: 10px;
+    margin-right: 10px;
+    transition-duration: 0.3s;
+}
+
+main .contain button:hover{
+    background-color: #ffffff;
+    color: #0177fd;
+}
+
+main .contain button i {
+    margin-right: 10px;
+}
+
+#houses_list {
     max-width: 1502px;
     display: flex;
     flex-wrap: wrap;
     align-items: start;
 }
 
-section span{
+#houses_list a {
+    text-decoration: none;
+    color: #2f2f2f;
     background-color: #ffffff;
     border-bottom: 1px solid #dcdcdc;
     border-right: 1px solid #dcdcdc;
@@ -33,14 +65,14 @@ section span{
     height: max-content;
     padding: 10px;
     white-space: nowrap;
-    transition: 0.5s;
+    transition-duration: 0.5s;
 }
 
 label {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 20%;
+    width: 65%;
     position: relative;
 }
 
@@ -49,7 +81,7 @@ label span{
     left: 0;
     padding: 10px 10px 10px;
     pointer-events: none;
-    transition: 500ms;
+    transition-duration: 500ms;
     color: #4a525f;
 }
 
@@ -83,7 +115,7 @@ label p{
     background-color: #0177fd;
     width: 100%;
     border-radius: 4px;
-    transition: 500ms;
+    transition-duration: 500ms;
     pointer-events: none;
 }
 
@@ -92,32 +124,227 @@ label input:focus ~ p{
     height: 40px;
 }
 
+.house-info {
+    display: flex;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.house-info h2 {
+    margin-bottom: 20px;
+}
+
+.house-info .left, .house-info  .right {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 100px;
+}
+
+.house-info .table-info {
+    width: 100%;
+    background-color: #ffffff;
+    border-top: 1px solid #dcdcdc;
+    border-left: 1px solid #dcdcdc;
+}
+
+.house-info .table-info .row {
+    display: flex;
+    width: 100%;
+}
+
+.success {
+    background-color: #00a81e;
+    color: #ffffff;
+}
+
+.failure {
+    background-color: #ff0000;
+    color: #ffffff;
+}
+
+.house-info .table-info .row div{
+    width: 50%;
+    border-bottom: 1px solid #dcdcdc;
+    border-right: 1px solid #dcdcdc;
+    padding: 8px 10px;
+}
+
+.house-info .table-abonents {
+    width: 100%;
+    background-color: #ffffff;
+    border-top: 1px solid #dcdcdc;
+    border-left: 1px solid #dcdcdc;
+}
+
+.house-info .table-abonents .row {
+    display: flex;
+    width: 100%;
+    cursor: pointer;
+}
+
+.house-info .table-abonents .row div{
+    width: 50%;
+    border-bottom: 1px solid #dcdcdc;
+    border-right: 1px solid #dcdcdc;
+    padding: 8px 10px;
+    color: #525968;
+}
+
+.house-info .table-applications{
+    width: 100%;
+    background-color: #ffffff;
+    border-top: 1px solid #dcdcdc;
+    border-left: 1px solid #dcdcdc;
+}
+
+.house-info .table-applications .row_h {
+    font-weight: bold;
+    color: #0177fd;
+    display: flex;
+}
+
+.house-info .table-applications .row {
+    display: flex;
+    cursor: pointer;
+}
+
+.house-info .table-applications .col1 {
+    width: 10%;
+}.house-info .table-applications .col2 {
+    width: 40%;
+}.house-info .table-applications .col3 {
+    width: 50%;
+}
+
+.house-info .table-applications .row div, .house-info .table-applications .row_h div {
+    border-right: 1px solid #dcdcdc;
+    border-bottom: 1px solid #dcdcdc;
+    padding: 8px 10px;
+    color: #525968;
+}
+
+.house-info .table-abonents .row:hover, .house-info .table-applications .row:hover {
+    background-color: #f3f3f3;
+}
+
+.house-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 152px);
+    height: 100%;
+    width: 100%;
+}
+
+.house-form .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    background-color: #ffffff;
+    padding: 50px;
+}
+
+.house-form .form label {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.house-form .form .checkboxes {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 50px;
+}
+
+.house-form .form .checkboxes label {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+input[type=checkbox] {
+    display: none;
+}
+
+.house-form .form .checkboxes label div {
+    position: relative;
+    margin-left:25px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1.05em;
+    user-select: none;
+}
+
+.house-form .form .checkboxes label div:before {
+    content: "";
+    left: -22px;
+    position: absolute;
+    height: 16px;
+    width: 16px;
+    border-radius: 3px;
+    border: 1px solid #0177fd;
+}
+
+.house-form .form .checkboxes label div:after {
+    content: "";
+    left: -19px;
+    position: absolute;
+    height: 10px;
+    width: 10px;
+    border-radius: 3px;
+    background-color: #0177fd;
+    opacity: 0;
+}
+
+.house-form .form .checkboxes label input[type="checkbox"]:checked + div:after{
+    opacity: 1;
+}
+
+.house-form .form button {
+    color: #ffffff;
+    background-color: #0177fd;
+    border-radius: 10px;
+    border: 2px solid #0177fd;
+    font-size: 1.05em;
+    padding: 8px 20px;
+    transition-duration: 0.3s;
+}
+
+.house-form .form button:hover {
+    color: #0177fd;
+    background-color: #ffffff;
+}
 
 @media (max-width: 1900px) {
-    section {
+    #houses_list {
         max-width: 1202px;
     }
 }
 
 @media (max-width: 1360px) {
-    section {
+    #houses_list {
         max-width: 902px;
     }
 }
 
 @media (max-width: 1060px) {
-    section {
+    #houses_list {
         max-width: 602px;
     }
 }
 
 @media (max-width: 980px) {
-    section {
+    #houses_list {
         width: 100%;
         font-size: 16px;
     }
 
-    section span {
+    #houses_list span {
         width: 100%;
     }
 }

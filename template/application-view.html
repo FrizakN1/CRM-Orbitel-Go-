@@ -1,0 +1,192 @@
+{{ define "application-view" }}
+    <!DOCTYPE html>
+    <html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title>Просмотр заявки</title>
+        <link rel="stylesheet" href="/assets/css/null.style.css">
+        <link rel="stylesheet" href="/assets/css/all.min.css">
+        <link rel="stylesheet" href="/assets/css/{{.Theme}}/style.css" id="theme">
+        <link rel="stylesheet" href="/assets/css/{{.Theme}}/application.css">
+    </head>
+    <body>
+    <div class="preload">
+        <div class="preload-contain">
+            <div class="preload-icon">
+                <img src="/assets/image/rocket.svg" alt="Загрузка">
+            </div>
+        </div>
+    </div>
+    {{template "aside" .}}
+    <main class="application-view">
+        <h2>Заявка №{{.Application.ID}}: {{.Application.Description}}</h2>
+        <div class="contain">
+            <div class="sides">
+                <div class="left">
+                    <div class="table">
+                        <a href="/abonents/view/{{.Application.Abonent.ID}}">
+                            <div class="row">
+                                <div class="key">Адрес</div>
+                                <div class="value">{{.Application.Abonent.ActualAddress}}</div>
+                            </div>
+                            <div class="row">
+                                <div class="key">Абонент</div>
+                                <div class="value">{{.Application.Abonent.Name}}</div>
+                            </div>
+                            <div class="row">
+                                <div class="key">Телефон</div>
+                                <div class="value">{{.Application.Abonent.Phone}}</div>
+                            </div>
+                        </a>
+                        <div class="row">
+                            <div class="border-contain">
+                                <div class="border"></div>
+                            </div>
+                        </div>
+                        <div class="row" >
+                            <div class="key">Приоритет</div>
+                            <div class="value {{if eq .Application.Priority.ID 1}}critical{{else if eq .Application.Priority.ID 2}}high{{else if eq .Application.Priority.ID 4}}low{{end}}">{{.Application.Priority.Name}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="key">Статус заявки</div>
+                            <div class="value">{{.Application.Status.Name}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="key">Дата создания</div>
+                            <div class="value">{{.Application.Date}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="border-contain">
+                                <div class="border"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="key">Создатель</div>
+                            <div class="value">{{.Application.Creator.Name}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="key">Исполнительный отдел</div>
+                            <div class="value">{{.Application.Department.Name}}</div>
+                        </div>
+                        {{if ne .Application.Executor.ID 0}}
+                        <div class="row">
+                            <div class="key">Исполнитель</div>
+                            <div class="value">{{.Application.Executor.Name}}</div>
+                        </div>
+                            {{end}}
+                        {{if ne .Application.Notes ""}}
+                            <div class="row">
+                                <div class="border-contain">
+                                    <div class="border"></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="key">Примечание</div>
+                                <div class="value">{{.Application.Notes}}</div>
+                            </div>
+                        {{end}}
+                    </div>
+                    <div class="history">
+                        <h3>История событий</h3>
+                        <div class="records">
+                            {{range $vl := .Events}}
+                            <div class="record">
+                                <div class="col1">{{$vl.Date}}</div>
+                                <div class="col2">{{$vl.User.Name}}</div>
+                                <div class="event">
+                                    <span class="name">{{$vl.Name}}</span>
+                                    <span class="comment">{{$vl.Comment}}</span>
+                                </div>
+                            </div>
+                            {{end}}
+                        </div>
+                    </div>
+                </div>
+                <div class="right">
+                    <h3>Управление заявкой</h3>
+                    <div class="control">
+                        {{if eq .Application.Status.ID 1}}<button class="btn" id="start-processing" data-application_id="{{.Application.ID}}">Принять в обработку</button>{{end}}
+                        {{if eq .Application.Status.ID 2}}<button class="btn" id="reopen-processing" data-application_id="{{.Application.ID}}">Переоткрыть заявку</button>{{end}}
+                        {{if eq .Application.Status.ID 3}}
+                            {{if or (eq .SessionUser.Role.ID 1) (eq .SessionUser.Role.ID 6)}}
+                                <button class="btn" id="stop-processing" data-application_id="{{.Application.ID}}">Закрыть заявку</button>
+                            {{else if eq .SessionUser.ID .Application.Executor.ID}}
+                                <button class="btn" id="stop-processing" data-application_id="{{.Application.ID}}">Закрыть заявку</button>
+                            {{end}}
+                        {{end}}
+                        {{if or (eq .SessionUser.Role.ID 1) (eq .SessionUser.Role.ID 6)}}
+                            <div class="option">
+                                <span class="option-span">Переадресовать в другой отдел</span>
+                                <div style="display: flex">
+                                    <div class="select">
+                                        <div id="department" class="select-button">
+                                            <span class="select-button-span">Выбрать</span>
+                                            <i class="fa-solid fa-caret-down select-button-icon"></i>
+                                        </div>
+                                        <ul class="departments">
+                                            <li value="1">Админы</li>
+                                            <li value="2">Менеджеры</li>
+                                            <li value="3">Техники</li>
+                                            <li value="4">ТВ</li>
+                                        </ul>
+                                    </div>
+                                    <button id="department-submit" data-application_id="{{.Application.ID}}">Отправить</button>
+                                </div>
+                            </div>
+                        {{else if eq .SessionUser.ID .Application.Executor.ID}}
+                            <div class="option">
+                                <span class="option-span">Переадресовать в другой отдел</span>
+                                <div style="display: flex">
+                                    <div class="select">
+                                        <div id="department" class="select-button">
+                                            <span class="select-button-span">Выбрать</span>
+                                            <i class="fa-solid fa-caret-down select-button-icon"></i>
+                                        </div>
+                                        <ul class="departments">
+                                            <li value="1">Админы</li>
+                                            <li value="2">Менеджеры</li>
+                                            <li value="3">Техники</li>
+                                            <li value="4">ТВ</li>
+                                        </ul>
+                                    </div>
+                                    <button id="department-submit" data-application_id="{{.Application.ID}}">Отправить</button>
+                                </div>
+                            </div>
+                        {{end}}
+                        <div class="option">
+                            <span class="option-span">Изменить приоритет</span>
+                            <div style="display: flex">
+                                <div class="select">
+                                    <div id="priority" class="select-button">
+                                        <span class="select-button-span">Выбрать</span>
+                                        <i class="fa-solid fa-caret-down select-button-icon"></i>
+                                    </div>
+                                    <ul class="priority">
+                                        <li value="1">Критический</li>
+                                        <li value="2">Высокий</li>
+                                        <li value="3">Нормальный</li>
+                                        <li value="4">Низкий</li>
+                                    </ul>
+                                </div>
+                                <button id="priority-submit" data-application_id="{{.Application.ID}}">Отправить</button>
+                            </div>
+                        </div>
+                        <div class="option">
+                            <span class="option-span">Добавить коментарий</span>
+                            <div style="display: flex; flex-direction: column">
+                                <textarea rows="6" cols="30" id="comment"></textarea>
+                                <button id="comment-submit" data-application_id="{{.Application.ID}}">Отправить</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>2022 ООО "Орбител". Все права защищены</footer>
+    <script src="/assets/js/script.js"></script>
+    <script src="/assets/js/send.js"></script>
+    <script src="/assets/js/application-view.js"></script>
+    </body>
+    </html>
+{{ end }}

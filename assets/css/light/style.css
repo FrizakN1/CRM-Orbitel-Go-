@@ -11,7 +11,7 @@
 }
 
 .loaded_hiding .preload {
-    transition: 0.3s;
+    transition-duration: 0.3s;
     opacity: 0;
 }
 
@@ -96,7 +96,7 @@ body{
     display: flex;
     flex-direction: column;
     padding-left: 130px;
-    transition: 0.5s background-color;
+    /*transition-duration: 0.5s;*/
 }
 
 footer{
@@ -116,7 +116,7 @@ nav {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    transition: 500ms;
+    transition-duration: 500ms;
     inset: 10px;
     z-index: 10;
 }
@@ -141,7 +141,7 @@ nav {
     height: 2px;
     background-color: #000;
     transform: translateY(-10px);
-    transition: 500ms;
+    transition-duration: 500ms;
 }
 
 .menuBtn:after {
@@ -152,7 +152,7 @@ nav {
     background-color: #000;
     box-shadow: 0 -10px 0 #000;
     transform: translateY(10px);
-    transition: 500ms;
+    transition-duration: 500ms;
 }
 
 nav.active {
@@ -185,7 +185,7 @@ nav ul li{
     height: 80px;
     border-radius: 12px;
     border: 8px solid transparent;
-    transition: 500ms;
+    transition-duration: 500ms;
 }
 
 nav ul li.active{
@@ -209,7 +209,7 @@ nav ul li:before{
     border-bottom-right-radius: 20px;
     box-shadow: 6px 5px 0 4px #e2e4ee;
     opacity: 0;
-    transition: 500ms;
+    transition-duration: 500ms;
 }
 
 nav ul li:after{
@@ -223,7 +223,7 @@ nav ul li:after{
     border-top-right-radius: 20px;
     box-shadow: 6px -5px 0 4px #e2e4ee;
     opacity: 0;
-    transition: 500ms;
+    transition-duration: 500ms;
 }
 
 nav ul li.active:before, li.active:after{
@@ -260,7 +260,7 @@ nav ul li a .icon{
     border-radius: 10px;
     color: #4a525f;
     font-size: 1.6em;
-    transition: 0.5s;
+    transition-duration: 0.5s;
 }
 
 nav ul li.active a .icon{
@@ -277,7 +277,7 @@ nav ul li.active a .icon:before{
     border: 5px solid #e2e4ee;
     height: 28px;
     width: 28px;
-    transition: 0.5s;
+    transition-duration: 0.5s;
 }
 
 nav ul li a .text{
@@ -289,7 +289,7 @@ nav ul li a .text{
     height: 60px;
     visibility: hidden;
     opacity: 0;
-    transition: 500ms;
+    transition-duration: 500ms;
     white-space: nowrap;
     font-size: 1.2em;
 }
@@ -368,7 +368,7 @@ nav ul li .text{
     height: 30px;
     visibility: hidden;
     opacity: 0;
-    transition: 500ms;
+    transition-duration: 500ms;
     white-space: nowrap;
     font-size: 1.2em;
 }
@@ -393,7 +393,7 @@ nav.active ul li .text{
     align-items: center;
     padding: 5px;
     position: relative;
-    transition: 0.5s;
+    transition-duration: 0.5s;
 }
 
 .switch div{
@@ -403,7 +403,7 @@ nav.active ul li .text{
     background-color: #0177fd;
     position: absolute;
     left: 5px;
-    transition: 0.5s;
+    transition-duration: 0.5s;
 }
 
 .switch.on {
@@ -417,7 +417,7 @@ nav.active ul li .text{
     background-color: #ffffff;
     position: absolute;
     left: 34px;
-    transition: 0.5s;
+    transition-duration: 0.5s;
 }
 
 .select {
@@ -433,7 +433,7 @@ nav.active ul li .text{
     border: 1px solid #0177fd;
     padding: 10px 20px;
     width: 152px;
-    transition: 0.5s;
+    transition-duration: 0.5s;
     display: flex;
     justify-content: center;
     user-select: none;
@@ -442,7 +442,7 @@ nav.active ul li .text{
 .select div i{
     color: #4a525f;
     margin-left: 5px;
-    transition: 0.5s;
+    transition-duration: 0.5s;
 }
 
 .select.active div {
@@ -460,10 +460,10 @@ nav.active ul li .text{
     height: 0;
     top: 39px;
     width: 125px;
-    transition: 0.2s;
+    transition-duration: 0.2s;
     background-color: #ffffff;
     box-shadow: 0 0 10px rgba(0,0,0,0.25);
-    z-index: 10;
+    z-index: 10000000000;
 }
 
 .select.active ul {
@@ -473,19 +473,29 @@ nav.active ul li .text{
 
 .select.active ul.priority {
     height: 128px;
-    transition: 0.1s;
+    transition-duration: 0.1s;
 }
 
 .select.active ul.departments {
-    height: 256px;
-    transition: 0.1s;
+    height: 128px;
+    transition-duration: 0.1s;
+}
+
+.select.active ul.departments2 {
+    height: 160px;
+    transition-duration: 0.1s;
+}
+
+.select.active ul.roles {
+    height: 196px;
+    transition-duration: 0.1s;
 }
 
 .select ul li{
     visibility: hidden;
     opacity: 0;
     color: #0177fd;
-    transition: 0.3s;
+    transition-duration: 0.3s;
     cursor: pointer;
     padding: 8px;
     text-align: center;
@@ -494,7 +504,7 @@ nav.active ul li .text{
 .select.active ul li{
     visibility: visible;
     opacity: 1;
-    transition: 0.3s;
+    transition-duration: 0.3s;
 }
 
 .select.active ul li:hover{

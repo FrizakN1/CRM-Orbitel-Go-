@@ -1,0 +1,57 @@
+{{define "aside"}}
+<nav>
+    <div class="menuBtn"></div>
+    <ul>
+        <li {{if eq .Active "index"}}class="active"{{end}}>
+            <a href="/">
+                <span class="icon"><i class="fa-solid fa-house"></i></span>
+                <span class="text">Главная</span>
+            </a>
+        </li>
+        <li {{if eq .Active "application"}}class="active"{{end}}>
+            <a href="/application">
+                <span class="icon"><i class="fa-solid fa-address-card"></i></span>
+                <span class="text">Заявки</span>
+            </a>
+        </li>
+        <li {{if eq .Active "applicationCreate"}}class="active"{{end}}>
+            <a href="/application/create-none">
+                <span class="icon"><i class="fa-solid fa-address-card"></i></span>
+                <span class="text">Создание заявки</span>
+            </a>
+        </li>
+        <li id="hoses" {{if eq .Active "houses"}}class="active"{{end}}>
+            <a href="/houses">
+                <span class="icon"><i class="fa-solid fa-house"></i></span>
+                <span class="text">Список домов</span>
+            </a>
+        </li>
+       {{if or (eq .SessionUser.Role.ID 1) (eq .SessionUser.Role.ID 6)}}
+           <li id="users" {{if eq .Active "users"}}class="active"{{end}}>
+               <a href="/users">
+                   <span class="icon"><i class="fa-solid fa-users"></i></span>
+                   <span class="text">Пользователи</span>
+               </a>
+           </li>
+       {{end}}
+        <li id="abonents" {{if eq .Active "abonents"}}class="active"{{end}}>
+            <a href="/abonents">
+                <span class="icon"><i class="fa-solid fa-users"></i></span>
+                <span class="text">Абоненты</span>
+            </a>
+        </li>
+        <li id="exit">
+            <a href="#">
+                <span class="icon"><i class="fa-solid fa-right-from-bracket"></i></span>
+                <span class="text">Выход</span>
+            </a>
+        </li>
+        <li class="settings">
+            <div class="LD-mode">
+                <span class="icon"><div class="switch"><div></div></div></span>
+                <span class="text">Тёмная тема</span>
+            </div>
+        </li>
+    </ul>
+</nav>
+{{end}}

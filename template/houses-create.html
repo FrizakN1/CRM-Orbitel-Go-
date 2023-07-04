@@ -1,0 +1,94 @@
+{{ define "houses-create" }}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="/assets/css/null.style.css">
+        <link rel="stylesheet" href="/assets/css/all.min.css">
+        <link rel="stylesheet" href="/assets/css/{{.Theme}}/style.css" id="theme">
+        <link rel="stylesheet" href="/assets/css/{{.Theme}}/houses.css">
+        <title>Добавление адреса</title>
+    </head>
+    <body>
+    <div class="preload">
+        <div class="preload-contain">
+            <div class="preload-icon">
+                <img src="/assets/image/rocket.svg" alt="Загрузка">
+            </div>
+        </div>
+    </div>
+    {{template "aside" .}}
+    <main>
+        <div class="contain">
+            <h2>Добавление адреса</h2>
+        </div>
+        <section class="house-form">
+            <div class="form">
+                <div style="display: flex; justify-content: space-between">
+                    <label style="width: 69%">
+                        <input type="text" id="Street" required="required">
+                        <span>Улица</span>
+                        <p></p>
+                    </label>
+                    <label style="width: 30%">
+                        <input type="text" id="Number" required="required">
+                        <span>Дом</span>
+                        <p></p>
+                    </label>
+                </div>
+                <div class="checkboxes">
+                    <label>
+                        <input type="checkbox" id="Internet">
+                        <div>Интернет</div>
+                    </label>
+                    <label>
+                        <input type="checkbox" id="Tv">
+                        <div>ТВ</div>
+                    </label>
+                    <label>
+                        <input type="checkbox" id="Telephony">
+                        <div>Телефония</div>
+                    </label>
+                </div>
+                <label>
+                    <input type="text" id="NameMC" required="required">
+                    <span>Наименование УК</span>
+                    <p></p>
+                </label>
+                <label>
+                    <input type="text" id="AddressMC" required="required">
+                    <span>Адрес УК</span>
+                    <p></p>
+                </label>
+                <label>
+                    <input type="text" id="ChairmanName" required="required">
+                    <span>ФИО представителя</span>
+                    <p></p>
+                </label>
+                <label>
+                    <input type="text" id="ChairmanContact" required="required">
+                    <span>Контактные данные представителя</span>
+                    <p></p>
+                </label>
+                <label>
+                    <input type="text" id="Power" required="required">
+                    <span>Мощность, заявленная в Энергосбыт</span>
+                    <p></p>
+                </label>
+               <div class="checkboxes">
+                   <label>
+                       <input type="checkbox" id="Agreement">
+                       <div>Согласование с жильцами</div>
+                   </label>
+               </div>
+                <button id="houseCreate">Создать</button>
+            </div>
+        </section>
+    </main>
+    <footer>2022 ООО "Орбител". Все права защищены</footer>
+    <script src="/assets/js/script.js"></script>
+    <script src="/assets/js/send.js"></script>
+    <script src="/assets/js/houses.js"></script>
+    </body>
+    </html>
+{{ end }}

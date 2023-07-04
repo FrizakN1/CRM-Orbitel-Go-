@@ -1,0 +1,94 @@
+{{ define "houses-edit" }}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="/assets/css/null.style.css">
+        <link rel="stylesheet" href="/assets/css/all.min.css">
+        <link rel="stylesheet" href="/assets/css/{{.Theme}}/style.css" id="theme">
+        <link rel="stylesheet" href="/assets/css/{{.Theme}}/houses.css">
+        <title>Изменение адреса</title>
+    </head>
+    <body>
+    <div class="preload">
+        <div class="preload-contain">
+            <div class="preload-icon">
+                <img src="/assets/image/rocket.svg" alt="Загрузка">
+            </div>
+        </div>
+    </div>
+    {{template "aside" .}}
+    <main>
+        <div class="contain">
+            <h2>Изменение адреса</h2>
+        </div>
+        <section class="house-form">
+            <div class="form">
+                <div style="display: flex; justify-content: space-between">
+                    <label style="width: 69%">
+                        <input type="text" id="Street" required="required" value="{{.Street}}">
+                        <span>Улица</span>
+                        <p></p>
+                    </label>
+                    <label style="width: 30%">
+                        <input type="text" id="Number" required="required" value="{{.Number}}">
+                        <span>Дом</span>
+                        <p></p>
+                    </label>
+                </div>
+                <div class="checkboxes">
+                    <label>
+                        <input type="checkbox" id="Internet" {{if eq .House.Internet 1}} checked {{end}}>
+                        <div>Интернет</div>
+                    </label>
+                    <label>
+                        <input type="checkbox" id="Tv" {{if eq .House.TV 1}} checked {{end}}>
+                        <div>ТВ</div>
+                    </label>
+                    <label>
+                        <input type="checkbox" id="Telephony" {{if eq .House.Telephony 1}} checked {{end}}>
+                        <div>Телефония</div>
+                    </label>
+                </div>
+                <label>
+                    <input type="text" id="NameMC" required="required" value="{{.House.NameMC}}">
+                    <span>Наименование УК</span>
+                    <p></p>
+                </label>
+                <label>
+                    <input type="text" id="AddressMC" required="required" value="{{.House.AddressMC}}">
+                    <span>Адрес УК</span>
+                    <p></p>
+                </label>
+                <label>
+                    <input type="text" id="ChairmanName" required="required" value="{{.House.ChairmanName}}">
+                    <span>ФИО представителя</span>
+                    <p></p>
+                </label>
+                <label>
+                    <input type="text" id="ChairmanContact" required="required" value="{{.House.ChairmanContact}}">
+                    <span>Контактные данные представителя</span>
+                    <p></p>
+                </label>
+                <label>
+                    <input type="text" id="Power" required="required" {{if ne .House.Power 0.0}} value="{{.House.Power}}" {{end}}>
+                    <span>Мощность, заявленная в Энергосбыт</span>
+                    <p></p>
+                </label>
+                <div class="checkboxes">
+                    <label>
+                        <input type="checkbox" id="Agreement" {{if eq .House.Agreement 1}} checked {{end}}>
+                        <div>Согласование с жильцами</div>
+                    </label>
+                </div>
+                <button id="houseUpdate">Сохранить</button>
+            </div>
+        </section>
+    </main>
+    <footer>2022 ООО "Орбител". Все права защищены</footer>
+    <script src="/assets/js/script.js"></script>
+    <script src="/assets/js/send.js"></script>
+    <script src="/assets/js/houses.js"></script>
+    </body>
+    </html>
+{{ end }}

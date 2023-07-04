@@ -17,69 +17,7 @@
             </div>
         </div>
     </div>
-    <nav>
-        <div class="menuBtn"></div>
-        <ul>
-            <li>
-                <a href="/">
-                    <span class="icon"><i class="fa-solid fa-house"></i></span>
-                    <span class="text">Главная</span>
-                </a>
-            </li>
-            <li>
-                <a href="/application">
-                    <span class="icon"><i class="fa-solid fa-address-card"></i></span>
-                    <span class="text">Заявки</span>
-                </a>
-            </li>
-            <li>
-                <a href="/application/create">
-                    <span class="icon"><i class="fa-solid fa-address-card"></i></span>
-                    <span class="text">Создание заявки</span>
-                </a>
-            </li>
-            <li>
-                <a href="/houses">
-                    <span class="icon"><i class="fa-solid fa-house"></i></span>
-                    <span class="text">Дома с ТВ</span>
-                </a>
-            </li>
-            <li class="active">
-                <a href="/users">
-                    <span class="icon"><i class="fa-solid fa-users"></i></span>
-                    <span class="text">Пользователи</span>
-                </a>
-            </li>
-{{/*            <li>*/}}
-{{/*                <a href="/users/login">*/}}
-{{/*                    <span class="icon"><i class="fa-solid fa-right-to-bracket"></i></span>*/}}
-{{/*                    <span class="text">Авторизация</span>*/}}
-{{/*                </a>*/}}
-{{/*            </li>*/}}
-{{/*            <li>*/}}
-{{/*                <a href="/about">*/}}
-{{/*                    <span class="icon"><i class="fa-solid fa-address-card"></i></span>*/}}
-{{/*                    <span class="text">О нас</span>*/}}
-{{/*                </a>*/}}
-{{/*            </li>*/}}
-            <li class="settings">
-                {{/*            <a href="/settings">*/}}
-                {{/*                <span class="icon"><i class="fa-solid fa-gear"></i></span>*/}}
-                {{/*                <span class="text">Настройки</span>*/}}
-                {{/*            </a>*/}}
-                <div class="LD-mode">
-                    <span class="icon"><div class="switch"><div></div></div></span>
-                    <span class="text">Тёмная тема</span>
-                </div>
-            </li>
-        </ul>
-    </nav>
-    <!--    <header>-->
-    <!--        <div class="profile">-->
-    <!--            <span>Евгений</span>-->
-    <!--            <div><img src="assets/image/avatar.jpg" alt=""></div>-->
-    <!--        </div>-->
-    <!--    </header>-->
+    {{template "aside" .}}
     <main>
         <h2 user-id="{{.User.ID}}">Изменение пользователя: {{.User.Name}}</h2>
         <section>
@@ -88,49 +26,43 @@
                     <div class="select-block">
                         <span class="select-block-span">Роль</span>
                         <div class="select">
-                            <div id="select-button">
-                                <span id="select-button-span" class="select-button-span">Выбрать</span>
-                                <i class="fa-solid fa-caret-down" id="select-button-icon"></i>
+                            <div id="Role" class="select-button" value="{{.User.Role.ID}}" style="background-color: #0177fd; color: #ffffff">
+                                {{.User.Role.Name}}
                             </div>
-                            <ul id="role-list">
+                            <ul id="role-list" class="roles">
                                 <li value="1">SuperAdmin</li>
                                 <li value="2">Admin</li>
                                 <li value="3">Manager</li>
-                                <li value="4">User</li>
-                                <li value="5">Director</li>
-                                <li value="6">PhoneUser</li>
-                                <li value="7">Technician</li>
-                                <li value="8">VirtualUser</li>
-                                <li value="9">EnTv</li>
-                                <li value="10">Storekeeper</li>
-                                <li value="11">TechManager</li>
+                                <li value="4">Technician</li>
+                                <li value="5">Tv</li>
+                                <li value="6">Director</li>
                             </ul>
                         </div>
                     </div>
 
                     <label>
-                        <input type="text" id="login" required="required">
+                        <input type="text" id="Login" required="required" value="{{.User.Login}}">
                         <span>Логин</span>
                         <i></i>
                     </label>
                     <label>
-                        <input type="text" id="name" required="required">
+                        <input type="text" id="Name" required="required" value="{{.User.Name}}"}>
                         <span>Имя</span>
                         <i></i>
                     </label>
                     <label>
-                        <input type="text" id="password" required="required">
-                        <span>Пароль</span>
+                        <input type="password" id="Password" required="required">
+                        <span>Новый пароль</span>
                         <i></i>
                     </label>
                     <label>
-                        <input type="text" id="password" required="required">
+                        <input type="password" id="PasswordConfirm" required="required">
                         <span>Подтверждение пароля</span>
                         <i></i>
                     </label>
                     <div class="btns">
-                        <div class="btn unblock">Сохранить</div>
-                        <div class="btn block btn-block-unblock" id="btn-block" data-user_id = "{{.User.ID}}">Заблокировать</div>
+                        <div class="btn unblock" id="updateUser">Сохранить</div>
+{{/*                        <div class="btn block btn-block-unblock" id="btn-block" data-user_id = "{{.User.ID}}">Заблокировать</div>*/}}
                     </div>
                 </div>
             </div>
@@ -140,7 +72,7 @@
     <script src="/assets/js/script.js"></script>
     <script src="/assets/js/send.js"></script>
     <script src="/assets/js/user.js"></script>
-    <script src="/assets/js/user-edit.js"></script>
+{{/*    <script src="/assets/js/user-edit.js"></script>*/}}
     </body>
     </html>
 {{ end }}

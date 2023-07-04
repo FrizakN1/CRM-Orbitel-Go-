@@ -1,0 +1,118 @@
+{{define "houses-view"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/assets/css/null.style.css">
+    <link rel="stylesheet" href="/assets/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/{{.Theme}}/style.css" id="theme">
+    <link rel="stylesheet" href="/assets/css/{{.Theme}}/houses.css">
+    <title>Просмотр дома</title>
+</head>
+<body>
+<div class="preload">
+    <div class="preload-contain">
+        <div class="preload-icon">
+            <img src="/assets/image/rocket.svg" alt="Загрузка">
+        </div>
+    </div>
+</div>
+{{template "aside" .}}
+<main>
+    <div class="contain">
+        <h2>Просмотр дома {{.House.Name}}</h2>
+{{if or (or (eq .SessionUser.Role.ID 1) (eq .SessionUser.Role.ID 6)) (eq .SessionUser.Role.ID 2)}}<a href="/houses/edit/{{.House.ID}}"><button><i class="fa-solid fa-pen"></i> Изменить</button></a>{{end}}
+    </div>
+    <section class="house-info">
+        <div class="left">
+            <h2>Данные дома</h2>
+            <div class="table-info">
+                <div class="row">
+                    <div class="key">Адрес</div>
+                    <div class="value">{{.House.Name}}</div>
+                </div>
+                <div class="row">
+                    <div class="key">Интернет</div>
+                    <div class="value {{if eq .House.Internet 1}} success">Подключаем{{else}} failure">Не подключаем{{end}}</div>
+                </div>
+                <div class="row">
+                    <div class="key">ТВ</div>
+                    <div class="value {{if eq .House.TV 1}} success">Подключаем{{else}} failure">Не подключаем{{end}}</div>
+                </div>
+                <div class="row">
+                    <div class="key">Телефония</div>
+                    <div class="value {{if eq .House.Telephony 1}} success">Подключаем{{else}} failure">Не подключаем{{end}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <h2>Данные по дому</h2>
+            <div class="table-info">
+                <div class="row">
+                    <div class="key">Наименование УК</div>
+                    <div class="value">{{.House.NameMC}}</div>
+                </div>
+                <div class="row">
+                    <div class="key">Адрес УК</div>
+                    <div class="value">{{.House.AddressMC}}</div>
+                </div>
+                <div class="row">
+                    <div class="key">ФИО председателя</div>
+                    <div class="value">{{.House.ChairmanName}}</div>
+                </div>
+                <div class="row">
+                    <div class="key">Контактные данные председателя</div>
+                    <div class="value">{{.House.ChairmanContact}}</div>
+                </div>
+                <div class="row">
+                    <div class="key">Мощность, заявленная в Энергосбыт</div>
+                    <div class="value">{{.House.Power}} кВт</div>
+                </div>
+                <div class="row">
+                    <div class="key">Согласование с жильцами</div>
+                    <div class="value">{{if eq .House.Agreement 0}}Нет{{else}}Да{{end}}</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="house-info">
+        <div class="left">
+            <h2>Абоненты</h2>
+            <div class="table-abonents">
+                {{range $i := .Abonents}}
+                    <a href="/abonents/view/{{$i.ID}}">
+                    <div class="row">
+                        <div class="address">{{$i.ActualAddress}}</div>
+                        <div class="name">{{$i.Name}}</div>
+                    </div>
+                    </a>
+                {{end}}
+            </div>
+        </div>
+        <div class="right">
+            <h2>Текущие заявки</h2>
+            <div class="table-applications">
+                <div class="row_h">
+                    <div class="id col1">#</div>
+                    <div class="address col2">Адрес</div>
+                    <div class="description col3">Описание</div>
+                </div>
+                {{range $i := .Applications}}
+                    <a href="/application/view-{{$i.ID}}">
+                    <div class="row">
+                        <div class="id col1">{{$i.ID}}</div>
+                        <div class="address col2">{{$i.Abonent.ActualAddress}}</div>
+                        <div class="description col3">{{$i.Description}}</div>
+                    </div>
+                    </a>
+                {{end}}
+
+            </div>
+        </div>
+    </section>
+</main>
+<script src="/assets/js/script.js"></script>
+<script src="/assets/js/send.js"></script>
+</body>
+</html>
+{{end}}

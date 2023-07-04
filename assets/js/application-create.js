@@ -8,7 +8,6 @@ Send("GET", "/application/get-abonents", null, (res) => {
 let abonentInput = document.querySelector("#Abonent");
 if (abonentInput) {
     let abonentList = document.querySelector("#abonent-list")
-
     abonentInput.oninput = (event) => {
         abonentList.innerHTML = ""
         if (event.target.value.length > 0) {
@@ -29,7 +28,7 @@ if (abonentInput) {
                 divName.innerHTML = abonents[index].Name;
 
                 divAddress.className = "address";
-                divAddress.innerHTML = abonents[index].Address
+                divAddress.innerHTML = abonents[index].ActualAddress
 
                 divAdbonent.append(divName, divAddress)
                 abonentList.append(divAdbonent)
@@ -49,6 +48,160 @@ if (abonentInput) {
     }
 }
 
+function checkFastForm() {
+    let abonentID = document.querySelector("#Abonent");
+    let description = document.querySelector("#Description");
+    let notes = document.querySelector("#Notes").value;
+    let priority = document.querySelector("#Priority");
+    let department = document.querySelector("#Department");
+
+    let status = true;
+
+    if (abonentID.getAttribute("data-abonent_id").length < 1) {
+        status = false
+        abonentID.style.border = "1px solid #ff0000";
+    } else {
+        abonentID.style.border = "1px solid #0177fd";
+    }
+
+    if (description.value.length < 1) {
+        status = false
+        description.style.border = "1px solid #ff0000";
+    } else {
+        description.style.border = "1px solid #0177fd";
+    }
+
+    if (priority.getAttribute("value").length < 1) {
+        status = false
+        priority.style.border = "1px solid #ff0000";
+    } else {
+        priority.style.border = "1px solid #0177fd";
+    }
+
+    if (department.getAttribute("value").length < 1 || department.getAttribute("value") === "0") {
+        status = false
+        department.style.border = "1px solid #ff0000";
+    } else {
+        department.style.border = "1px solid #0177fd";
+    }
+
+    if (status) {
+        let data = {
+            Description: description.value,
+            Notes: notes,
+            Priority: {
+                ID: Number(priority.getAttribute("value"))
+            },
+            Department: {
+                ID: Number(department.getAttribute("value"))
+            },
+            Abonent: {
+                ID: Number(abonentID.getAttribute("data-abonent_id"))
+            }
+        }
+
+        Send("PUT", "/application/create", data, (res) => {
+            if (res) {
+                window.location.href = "/application"
+            }
+        })
+    }
+}
+
+function checkAlternativeForm() {
+    let phone = document.querySelector("#phone");
+    let name = document.querySelector("#name");
+    let street = document.querySelector("#street");
+    let houseNumber = document.querySelector("#house_number");
+    let apartmentNumber = document.querySelector("#apartment_number");
+    let description = document.querySelector("#Description");
+    let notes = document.querySelector("#Notes").value;
+    let priority = document.querySelector("#Priority");
+    let department = document.querySelector("#Department");
+
+    let status = true;
+
+    if (phone.value.length < 1) {
+        status = false
+        name.style.border = "1px solid #ff0000";
+    } else {
+        name.style.border = "1px solid #0177fd";
+    }
+
+    if (name.value.length < 1) {
+        status = false
+        name.style.border = "1px solid #ff0000";
+    } else {
+        name.style.border = "1px solid #0177fd";
+    }
+
+    if (street.value.length < 1) {
+        status = false
+        street.style.border = "1px solid #ff0000";
+    } else {
+        street.style.border = "1px solid #0177fd";
+    }
+
+    if (houseNumber.value.length < 1) {
+        status = false
+        houseNumber.style.border = "1px solid #ff0000";
+    } else {
+        houseNumber.style.border = "1px solid #0177fd";
+    }
+
+    if (description.value.length < 1) {
+        status = false
+        description.style.border = "1px solid #ff0000";
+    } else {
+        description.style.border = "1px solid #0177fd";
+    }
+
+    if (priority.getAttribute("value").length < 1) {
+        status = false
+        priority.style.border = "1px solid #ff0000";
+    } else {
+        priority.style.border = "1px solid #0177fd";
+    }
+
+    if (department.getAttribute("value").length < 1) {
+        status = false
+        department.style.border = "1px solid #ff0000";
+    } else {
+        department.style.border = "1px solid #0177fd";
+    }
+
+    let addressSend;
+    if (apartmentNumber.value.length > 0) {
+        addressSend = street.value.trim()+" "+houseNumber.value.trim()+"-"+apartmentNumber.value.trim();
+    } else {
+        addressSend = street.value.trim()+" "+houseNumber.value.trim()
+    }
+
+    if (status) {
+        let data = {
+            Description: description.value,
+            Notes: notes,
+            Priority: {
+                ID: Number(priority.getAttribute("value"))
+            },
+            Department: {
+                ID: Number(department.getAttribute("value"))
+            },
+            Abonent: {
+                Name: name.value.trim(),
+                ActualAddress: addressSend,
+                Phone: phone.value.trim(),
+            }
+        }
+
+        Send("PUT", "/application/create-alternative", data, (res) => {
+            if (res) {
+                window.location.href = "/application"
+            }
+        })
+    }
+}
+
 let disables = document.querySelectorAll(".disable");
 if (disables) {
     disables[0].onclick = () => {
@@ -65,74 +218,10 @@ if (disables) {
     if (userCreateBtn) {
         userCreateBtn.onclick = () => {
             if (disables[0].style.display !== "block") {
-                let abonentID = document.querySelector("#Abonent").getAttribute("data-abonent_id");
-                let description = document.querySelector("#Description").value;
-                let notes = document.querySelector("#Notes").value;
-                let priority = document.querySelector("#Priority").getAttribute("value");
-                let department = document.querySelector("#Department").getAttribute("value");
-
-                let data = {
-                    Description: description,
-                    Notes: notes,
-                    Priority: {
-                        ID: Number(priority)
-                    },
-                    Department: {
-                        ID: Number(department)
-                    },
-                    Abonent: {
-                        ID: Number(abonentID)
-                    }
-                }
-
-                Send("PUT", "/application/create", data, (res) => {
-                    if (res) {
-                        window.location.href = "/application"
-                    }
-                })
+                checkFastForm()
+            } else {
+               checkAlternativeForm()
             }
         }
     }
 }
-
-// let selects = document.querySelectorAll(".select")
-// if (selects) {
-//     for (let select of selects) {
-//         let selectButton = select.querySelector("div")
-//         select.onclick = () => {
-//             select.classList.toggle("active");
-//         }
-//         for (let i = 1; i <= select.querySelector("ul").childNodes.length-1; i=i+2) {
-//             let item = select.querySelector("ul").childNodes[i]
-//             item.onclick = () => {
-//                 selectButton.innerHTML = item.innerHTML;
-//                 selectButton.setAttribute("value",item.value);
-//                 if (!selectButton.innerHTML.includes("Выбрать")) {
-//                     selectButton.style.backgroundColor = '#0177fd';
-//                     selectButton.style.color = "#ffffff"
-//                 }
-//
-//             }
-//         }
-//     }
-//     window.onclick = (event) => {
-//         switch (event.target.parentNode) {
-//             case selects[0]: disableSelect(selects[0], selects[1]);break;
-//             case selects[1]: disableSelect(selects[1], selects[0]); break;
-//             default: switch (event.target.parentNode.parentNode) {
-//                 case selects[0]: disableSelect(selects[0], selects[1]); break;
-//                 case selects[1]: disableSelect(selects[1], selects[0]); break;
-//                 default:
-//                     selects[0].classList.remove("active");
-//                     selects[1].classList.remove("active");
-//             }
-//         }
-//
-//         function disableSelect (select1, select2) {
-//             if (!select1.className.includes("active")) {
-//                 select1.classList.remove("active");
-//             }
-//             select2.classList.remove("active")
-//         }
-//     }
-// }

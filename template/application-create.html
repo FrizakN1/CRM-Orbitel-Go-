@@ -17,63 +17,7 @@
         </div>
     </div>
 </div>
-    <nav>
-    <div class="menuBtn"></div>
-    <ul>
-        <li id="index">
-            <a href="/">
-                <span class="icon"><i class="fa-solid fa-house"></i></span>
-                <span class="text">Главная</span>
-            </a>
-        </li>
-        <li id="application">
-            <a href="/application">
-                <span class="icon"><i class="fa-solid fa-address-card"></i></span>
-                <span class="text">Заявки</span>
-            </a>
-        </li>
-        <li id="application"  class="active">
-            <a href="/application/create">
-                <span class="icon"><i class="fa-solid fa-address-card"></i></span>
-                <span class="text">Создание заявки</span>
-            </a>
-        </li>
-        <li id="hoses">
-            <a href="/houses">
-                <span class="icon"><i class="fa-solid fa-house"></i></span>
-                <span class="text">Дома с ТВ</span>
-            </a>
-        </li>
-        <li id="users">
-            <a href="/users">
-                <span class="icon"><i class="fa-solid fa-users"></i></span>
-                <span class="text">Пользователи</span>
-            </a>
-        </li>
-{{/*        <li id="login">*/}}
-{{/*            <a href="/users/login">*/}}
-{{/*                <span class="icon"><i class="fa-solid fa-right-to-bracket"></i></span>*/}}
-{{/*                <span class="text">Авторизация</span>*/}}
-{{/*            </a>*/}}
-{{/*        </li>*/}}
-{{/*        <li>*/}}
-{{/*            <a href="/about">*/}}
-{{/*                <span class="icon"><i class="fa-solid fa-address-card"></i></span>*/}}
-{{/*                <span class="text">О нас</span>*/}}
-{{/*            </a>*/}}
-{{/*        </li>*/}}
-        <li class="settings">
-            {{/*            <a href="/settings">*/}}
-            {{/*                <span class="icon"><i class="fa-solid fa-gear"></i></span>*/}}
-            {{/*                <span class="text">Настройки</span>*/}}
-            {{/*            </a>*/}}
-            <div class="LD-mode">
-                <span class="icon"><div class="switch"><div></div></div></span>
-                <span class="text">Тёмная тема</span>
-            </div>
-        </li>
-    </ul>
-</nav>
+{{template "aside" .}}
     <main>
         <h2>Создание заявка</h2>
         <div class="contain">
@@ -82,78 +26,49 @@
                     <div class="left-side">
                         <div class="fast-search">
                             <label>
-                                <input type="text" required="required" id="Abonent">
+                                <input type="text" required="required" id="Abonent" data-abonent_id="">
                                 <span style="color: #0177fd;transform: translateY(-30px);font-size: 0.85em;">Абонент</span>
-                                <i style="height: 40px"></i>
                                 <div class="abonent-list" id="abonent-list"></div>
                             </label>
                             <div class="disable disable-top"></div>
                         </div>
-{{/*                        <div class="border-trans">*/}}
-{{/*                            <i></i>*/}}
-{{/*                            <span>или</span>*/}}
-{{/*                            <i></i>*/}}
-{{/*                        </div>*/}}
-{{/*                        <div class="alternative">*/}}
-{{/*                            <label>*/}}
-{{/*                                <input type="number" required="required" id="contract_number">*/}}
-{{/*                                <span style="color: #0177fd;transform: translateY(-30px);font-size: 0.85em;">Номер договора</span>*/}}
-{{/*                                <i style="height: 40px"></i>*/}}
-{{/*                            </label>*/}}
-{{/*                            <div>*/}}
-{{/*                                <label style="width: 33%">*/}}
-{{/*                                    <input type="text" required="required" id="name">*/}}
-{{/*                                    <span style="color: #0177fd;transform: translateY(-30px);font-size: 0.85em;">Имя</span>*/}}
-{{/*                                    <i style="height: 40px"></i>*/}}
-{{/*                                </label>*/}}
-{{/*                                <label style="width: 33%">*/}}
-{{/*                                    <input type="text" required="required" id="surname">*/}}
-{{/*                                    <span style="color: #0177fd;transform: translateY(-30px);font-size: 0.85em;">Фамилия</span>*/}}
-{{/*                                    <i style="height: 40px"></i>*/}}
-{{/*                                </label>*/}}
-{{/*                                <label style="width: 33%">*/}}
-{{/*                                    <input type="text" required="required" id="patronymic">*/}}
-{{/*                                    <span style="color: #0177fd;transform: translateY(-30px);font-size: 0.85em;">Отчество</span>*/}}
-{{/*                                    <i style="height: 40px"></i>*/}}
-{{/*                                </label>*/}}
-{{/*                            </div>*/}}
-{{/*                            <div>*/}}
-{{/*                                <label style="width: 50%">*/}}
-{{/*                                    <input type="text" required="required" id="street">*/}}
-{{/*                                    <span style="color: #0177fd;transform: translateY(-30px);font-size: 0.85em;">Улица</span>*/}}
-{{/*                                    <i style="height: 40px"></i>*/}}
-{{/*                                </label>*/}}
-{{/*                                <label style="width: 25%">*/}}
-{{/*                                    <input type="text" required="required" id="house_number">*/}}
-{{/*                                    <span style="color: #0177fd;transform: translateY(-30px);font-size: 0.85em;">Дом</span>*/}}
-{{/*                                    <i style="height: 40px"></i>*/}}
-{{/*                                </label>*/}}
-{{/*                                <label style="width: 25%">*/}}
-{{/*                                    <input type="number" required="required" id="apartment_number">*/}}
-{{/*                                    <span style="color: #0177fd;transform: translateY(-30px);font-size: 0.85em;">Квартира</span>*/}}
-{{/*                                    <i style="height: 40px"></i>*/}}
-{{/*                                </label>*/}}
-{{/*                            </div>*/}}
-{{/*                            <div class="disable disable-bottom"></div>*/}}
-{{/*                        </div>*/}}
+                        <div class="border-trans">
+                            <i></i>
+                            <span>или</span>
+                            <i></i>
+                        </div>
+                        <div class="alternative">
+                            <label>
+                                <input type="text" required="required" id="name">
+                                <span style="color: #0177fd;transform: translateY(-30px);font-size: 0.85em;">ФИО / Название организации</span>
+                            </label>
+                            <label>
+                                <input type="text" required="required" id="phone">
+                                <span style="color: #0177fd;transform: translateY(-30px);font-size: 0.85em;">Номер телефона</span>
+                            </label>
+                            <div>
+                                <label style="width: 50%">
+                                    <input type="text" required="required" id="street">
+                                    <span style="color: #0177fd;transform: translateY(-30px);font-size: 0.85em;">Улица</span>
+                                </label>
+                                <label style="width: 25%">
+                                    <input type="text" required="required" id="house_number">
+                                    <span style="color: #0177fd;transform: translateY(-30px);font-size: 0.85em;">Дом</span>
+                                </label>
+                                <label style="width: 25%">
+                                    <input type="number" required="required" id="apartment_number">
+                                    <span style="color: #0177fd;transform: translateY(-30px);font-size: 0.85em;">Квартира / Офис</span>
+                                </label>
+                            </div>
+                            <div class="disable disable-bottom"></div>
+                        </div>
                     </div>
                     <div class="right-side">
-                        <label>
-                            <input type="text" id="Description" required="required">
-                            <span style="color: #0177fd;transform: translateY(-30px);font-size: 0.85em;">Краткая суть описания проблемы</span>
-                            <i style="height: 40px"></i>
-                        </label>
-                        <label>
-                            <textarea cols="70" rows="10" required="required" id="Notes"></textarea>
-                            <span style="color: #0177fd;transform: translateY(-30px);font-size: 0.85em;">Примечания и дополнительная информация (необязательно)</span>
-                            <i style="height: 210px"></i>
-                        </label>
-
-                        <div style="display: flex;">
+                        <div style="display: flex; margin: 0 0 10px">
                             <div class="select-block">
                                 <span class="select-block-span">Приоритет</span>
                                 <div class="select">
-                                    <div id="Priority" class="select-button">
+                                    <div id="Priority" class="select-button" value="">
                                         <span class="select-button-span">Выбрать</span>
                                         <i class="fa-solid fa-caret-down select-button-icon"></i>
                                     </div>
@@ -168,53 +83,36 @@
                             <div class="select-block">
                                 <span class="select-block-span">Отдел</span>
                                 <div class="select">
-                                    <div id="Department" class="select-button">
+                                    <div id="Department" class="select-button" value="{{.DepartmentID}}"  {{if ne .DepartmentID 0}} style="background-color: #0177fd; color: #ffffff">
+                                        {{.DepartmentName}}
+                                    {{else}}
+                                        >
                                         <span class="select-button-span">Выбрать</span>
                                         <i class="fa-solid fa-caret-down select-button-icon"></i>
+                                    {{end}}
                                     </div>
                                     <ul class="departments">
-                                        <li value="1">(все отделы)</li>
-                                        <li value="2">Склад</li>
-                                        <li value="3">Админы</li>
-                                        <li value="4">Менеджеры</li>
-                                        <li value="5">Прорабы</li>
-                                        <li value="6">ТВ</li>
-                                        <li value="7">Телефония</li>
-                                        <li value="8">Техники</li>
+                                        <li value="1">Админы</li>
+                                        <li value="2">Менеджеры</li>
+                                        <li value="3">Техники</li>
+                                        <li value="4">ТВ</li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
+                        <label>
+                            <input type="text" id="Description" required="required" value="{{.DescriptionText}}">
+                            <span style="color: #0177fd;transform: translateY(-30px);font-size: 0.85em;">Краткая суть описания проблемы</span>
+                        </label>
+                        <label>
+                            <textarea cols="70" rows="10" required="required" id="Notes"></textarea>
+                            <span style="color: #0177fd;transform: translateY(-30px);font-size: 0.85em;">Примечания и дополнительная информация (необязательно)</span>
+                        </label>
 
-{{/*                        <select id="Priority">*/}}
-{{/*                            <option value="1">*/}}
-{{/*                                Критический*/}}
-{{/*                            </option>*/}}
-{{/*                            <option value="2">*/}}
-{{/*                                Высокий*/}}
-{{/*                            </option>*/}}
-{{/*                            <option value="3">*/}}
-{{/*                                Номальный*/}}
-{{/*                            </option>*/}}
-{{/*                            <option value="4">*/}}
-{{/*                                Низкий*/}}
-{{/*                            </option>*/}}
-{{/*                        </select>*/}}
-{{/*                        <select id="Department">*/}}
-{{/*                            <option value="1">(все отделы)</option>*/}}
-{{/*                            <option value="2">Склад</option>*/}}
-{{/*                            <option value="3">Админы</option>*/}}
-{{/*                            <option value="4">Менеджеры</option>*/}}
-{{/*                            <option value="5">Прорабы</option>*/}}
-{{/*                            <option value="6">ТВ</option>*/}}
-{{/*                            <option value="7">Телефония</option>*/}}
-{{/*                            <option value="8">Техники</option>*/}}
-{{/*                        </select>*/}}
                     </div>
                 </div>
                 <div class="btns">
                     <div class="btn btn-success" id="createUser">Создать</div>
-{{/*                    <div class="btn btn-error">Отмена</div>*/}}
                 </div>
             </div>
         </div>

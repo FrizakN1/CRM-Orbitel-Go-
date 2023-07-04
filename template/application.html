@@ -17,87 +17,22 @@
         </div>
     </div>
 </div>
-<nav>
-    <div class="menuBtn"></div>
-    <ul>
-        <li id="index">
-            <a href="/">
-                <span class="icon"><i class="fa-solid fa-house"></i></span>
-                <span class="text">Главная</span>
-            </a>
-        </li>
-        <li id="application" class="active">
-            <a href="/application">
-                <span class="icon"><i class="fa-solid fa-address-card"></i></span>
-                <span class="text">Заявки</span>
-            </a>
-        </li>
-        <li id="application">
-            <a href="/application/create">
-                <span class="icon"><i class="fa-solid fa-address-card"></i></span>
-                <span class="text">Создание заявки</span>
-            </a>
-        </li>
-        <li id="hoses">
-            <a href="/houses">
-                <span class="icon"><i class="fa-solid fa-house"></i></span>
-                <span class="text">Дома с ТВ</span>
-            </a>
-        </li>
-        <li id="users">
-            <a href="/users">
-                <span class="icon"><i class="fa-solid fa-users"></i></span>
-                <span class="text">Пользователи</span>
-            </a>
-        </li>
-{{/*        <li id="login">*/}}
-{{/*            <a href="/users/login">*/}}
-{{/*                <span class="icon"><i class="fa-solid fa-right-to-bracket"></i></span>*/}}
-{{/*                <span class="text">Авторизация</span>*/}}
-{{/*            </a>*/}}
-{{/*        </li>*/}}
-{{/*        <li>*/}}
-{{/*            <a href="/about">*/}}
-{{/*                <span class="icon"><i class="fa-solid fa-address-card"></i></span>*/}}
-{{/*                <span class="text">О нас</span>*/}}
-{{/*            </a>*/}}
-{{/*        </li>*/}}
-        <li class="settings">
-            {{/*            <a href="/settings">*/}}
-            {{/*                <span class="icon"><i class="fa-solid fa-gear"></i></span>*/}}
-            {{/*                <span class="text">Настройки</span>*/}}
-            {{/*            </a>*/}}
-            <div class="LD-mode">
-                <span class="icon"><div class="switch"><div></div></div></span>
-                <span class="text">Тёмная тема</span>
-            </div>
-        </li>
-    </ul>
-</nav>
-<!--    <header>-->
-<!--        <div class="profile">-->
-<!--            <span>Евгений</span>-->
-<!--            <div><img src="assets/image/avatar.jpg" alt=""></div>-->
-<!--        </div>-->
-<!--    </header>-->
+{{template "aside" .}}
     <main>
         <div class="main-head">
             <h2>Текущие заявки - </h2>
             <div class="select-block">
                 <span class="select-block-span">Отдел</span>
                 <div class="select">
-                    <div id="Department" class="select-button" value="1" style="background-color: #0177fd; color: #ffffff">
-                        (все отделы)
+                    <div id="Department" class="select-button" value="{{.SessionUser.Department.ID}}" style="background-color: #0177fd; color: #ffffff">
+                        {{.SessionUser.Department.Name}}
                     </div>
-                    <ul class="departments">
-                        <li value="1">(все отделы)</li>
-                        <li value="2">Склад</li>
-                        <li value="3">Админы</li>
-                        <li value="4">Менеджеры</li>
-                        <li value="5">Прорабы</li>
-                        <li value="6">ТВ</li>
-                        <li value="7">Телефония</li>
-                        <li value="8">Техники</li>
+                    <ul class="departments2">
+                        <li value="5">(все отделы)</li>
+                        <li value="1">Админы</li>
+                        <li value="2">Менеджеры</li>
+                        <li value="3">Техники</li>
+                        <li value="4">ТВ</li>
                     </ul>
                 </div>
             </div>
@@ -127,8 +62,8 @@
         </section>
     </main>
     <footer>2022 ООО "Орбител". Все права защищены</footer>
-    <script src="/assets/js/send.js"></script>
     <script src="/assets/js/script.js"></script>
+    <script src="/assets/js/send.js"></script>
     <script src="/assets/js/application.js"></script>
 </body>
 </html>

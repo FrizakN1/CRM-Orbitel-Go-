@@ -12,6 +12,10 @@ main {
     margin-bottom: 30px;
 }
 
+.title i{
+    margin-right: 10px;
+}
+
 h2 {
     font-size: 2em;
     color: #0177fd;
@@ -29,12 +33,12 @@ section {
     align-items: center;
     padding: 10px 20px;
     margin-bottom: 10px;
-    transition: 0.5s background-color;
+    transition-duration: 0.5s;
 }
 
 .user span {
     font-size: 1.2em;
-    transition: 0.5s color;
+    transition-duration: 0.5s;
 }
 
 .user div {
@@ -56,11 +60,11 @@ section {
 .edit {
     background-color: #0177fd;
     border: 2px solid #0177fd;
-    transition: 0.2s;
+    transition-duration: 0.2s;
 }
 .edit:hover {
     background-color: #ffffff;
-    transition: 0.2s;
+    transition-duration: 0.2s;
     color: #0177fd;
 }
 
@@ -71,22 +75,22 @@ section {
 .block {
     background-color: #ff0000;
     border: 2px solid #ff0000;
-    transition: 0.2s;
+    transition-duration: 0.2s;
 }
 .block:hover {
     background-color: #ffffff;
-    transition: 0.2s;
+    transition-duration: 0.2s;
     color: #ff0000;
 }
 
 .unblock {
     background-color: #00a81e;
     border: 2px solid #00a81e;
-    transition: 0.2s;
+    transition-duration: 0.2s;
 }
 .unblock:hover {
     background-color: #ffffff;
-    transition: 0.2s;
+    transition-duration: 0.2s;
     color: #00a81e;
 }
 
@@ -103,7 +107,7 @@ label span{
     left: 0;
     padding: 10px 10px 10px;
     pointer-events: none;
-    transition: 500ms;
+    transition-duration: 500ms;
 }
 
 label input{
@@ -134,7 +138,7 @@ label i{
     background-color: #0177fd;
     width: 100%;
     border-radius: 4px;
-    transition: 500ms;
+    transition-duration: 500ms;
     pointer-events: none;
 }
 
@@ -162,11 +166,89 @@ label input:focus ~ i{
     padding: 0 30px;
     border-radius: 18px;
     box-shadow: 0 0 10px rgba(0,0,0, 0.25);
-    transition: 0.5s background-color;
+    transition-duration: 0.5s;
 }
 
 .btns{
     display: flex;
     width: 500px;
     justify-content: space-between;
+}
+
+.info {
+    width: 65%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.info span{
+    width: 25%;
+    text-align: center;
+}
+
+.info span:first-child{
+    width: 50%;
+    text-align: left;
+}
+
+.ths {
+    font-size: 24px;
+    display: flex;
+    width: 65%;
+    justify-content: space-between;
+    padding: 0 10px 10px 30px;
+    color: #0177fd;
+    text-align: center;
+}
+
+.ths .th{
+   width: 25%;
+}
+
+.ths .th:first-child{
+    width: 50%;
+}
+
+.abonent-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #ffffff;
+    height: 80%;
+    padding: 0 30px;
+    border-radius: 18px;
+    box-shadow: 0 0 10px rgba(0,0,0, 0.25);
+    transition-duration: 0.5s;
+}
+
+.abonent-info {
+    padding: 0 100px;
+}
+
+.abonent-info .table{
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-top: 1px solid #dcdcdc;
+    border-left: 1px solid #dcdcdc;
+}
+
+.abonent-info .table .row{
+    display: flex;
+
+}
+
+.abonent-info .table .row div{
+    border-bottom: 1px solid #dcdcdc;
+    border-right: 1px solid #dcdcdc;
+    padding: 10px 20px;
+}
+
+.abonent-info .table .row .key {
+    width: 40%;
+}
+
+.abonent-info .table .row .value {
+    width: 60%;
 }

@@ -65,7 +65,7 @@ if (exit){
     exit.onclick = () => {
         Send("DELETE", "/users/exit", null, function (res){
             if (res) {
-                window.location.reload()
+                window.location.href = "/users/login"
             }
         })
     }

@@ -78,7 +78,6 @@ function sortColumn(index) {
 }
 
 function createApplicationsRows(title, applications) {
-    console.log(4)
     tbody.innerHTML = "";
     let h2 = document.querySelector("h2")
     h2.innerHTML = title+" заявки - "+applications.length
@@ -88,6 +87,9 @@ function createApplicationsRows(title, applications) {
     let lowApplications = []
     for (let row of applications) {
         let tr = document.createElement("tr")
+        tr.onclick = () => {
+            window.location.href = "/application/view-"+row.ID
+        }
         let column5Value
         if (row.Executor.ID) {
             column5Value = row.Executor.Name
@@ -95,7 +97,7 @@ function createApplicationsRows(title, applications) {
             column5Value = row.Status.Name
         }
         tr.innerHTML = "<td class=\"table-column1\">"+ row.ID +"</td>\n" +
-            "<td class=\"table-column2\">"+ row.Abonent.Address +"</td>\n" +
+            "<td class=\"table-column2\">"+ row.Abonent.ActualAddress +"</td>\n" +
             "<td class=\"table-column3\">"+ row.Abonent.Name +"</td>\n" +
             "<td class=\"table-column4\">"+ row.Description +"</td>\n" +
             "<td class=\"table-column5\">"+ column5Value +"</td>\n" +
@@ -122,7 +124,7 @@ function createApplicationsRows(title, applications) {
 }
 
 let applications = []
-Send("GET", "/application/get-data", null, (res) => {
+Send("GET", "/application/get-all", null, (res) => {
     if (res) {
         console.log(res)
         applications = res;
@@ -142,24 +144,15 @@ if (mainHead) {
 
     for (let tab of tabs) {
         tab.onclick = (event) => {
-            // defaultStyleTab()
-            // switch (event.target.id) {
-            //     case "status-1": createApplicationsRows("Текущие", applications.filter(item => item.Status.ID !== 2)); event.target.classList.add("active"); break
-            //     case "status-2": createApplicationsRows("Новые", applications.filter(item => item.Status.ID === 1)); event.target.classList.add("active"); break
-            //     case "status-3": createApplicationsRows("Закрытые", applications.filter(item => item.Status.ID === 2)); event.target.classList.add("active"); break
-            //     case "status-4": createApplicationsRows("Все", applications); event.target.classList.add("active"); break
-            // }
             switchTabs(event.target)
         }
     }
 
     function switchTabs(target) {
-        console.log(2)
         if (target) {
-            console.log(3)
             defaultStyleTab()
             let department = document.querySelector(".select").querySelector("div").getAttribute("value");
-            if (department === "1") {
+            if (department === "5") {
                 switch (target.id) {
                     case "status-1": createApplicationsRows("Текущие", applications.filter(item => item.Status.ID !== 2)); target.classList.add("active"); break
                     case "status-2": createApplicationsRows("Новые", applications.filter(item => item.Status.ID === 1)); target.classList.add("active"); break
@@ -178,7 +171,6 @@ if (mainHead) {
             for (let tab of tabs) {
                 if (tab.className.includes("active")) {
                     switchTabs(tab)
-                    console.log(tab)
                     break
                 }
             }
